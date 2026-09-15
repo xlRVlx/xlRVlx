@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>xlRVlx — Music Links</title>
+<title>xlRVlx — Music & Social Links</title>
 
 <style>
 
@@ -50,9 +50,7 @@ body {
 .logo {
     font-size: 48px;
     font-weight: 900;
-
     letter-spacing: 4px;
-
     margin-bottom: 8px;
 
     background:
@@ -84,21 +82,21 @@ body {
 
 
 /* =========================
-   SECTIONS
+   SECTION TITLES
 ========================= */
 
-section {
-    margin-bottom: 50px;
-}
-
 .section-title {
-    font-size: 18px;
+    color: #666;
+
+    font-size: 11px;
 
     font-weight: 800;
 
-    letter-spacing: 2px;
+    letter-spacing: 3px;
 
-    margin-bottom: 22px;
+    margin: 30px 0 15px;
+
+    text-align: center;
 }
 
 
@@ -110,7 +108,7 @@ section {
     width: 100%;
     max-width: 850px;
 
-    margin: auto;
+    margin: 0 auto 35px;
 
     background:
         linear-gradient(
@@ -282,11 +280,13 @@ section {
         repeat(5, 1fr);
 
     gap: 18px;
+
+    justify-content: center;
 }
 
 
 /* =========================
-   SOCIAL CARDS
+   CARDS
 ========================= */
 
 .card {
@@ -374,12 +374,12 @@ section {
 
 
 /* =========================
-   ICON CENTERING
+   ORIGINAL ICON CENTERING
 ========================= */
 
 .icon {
-    width: 64px;
-    height: 64px;
+    width: 58px;
+    height: 58px;
 
     position: relative;
 
@@ -390,25 +390,11 @@ section {
     justify-content: center;
 
     align-items: center;
-
-    flex-shrink: 0;
-
-    margin: 0 auto;
 }
 
 .icon svg {
     width: 58px;
     height: 58px;
-
-    display: block;
-
-    position: absolute;
-
-    left: 50%;
-    top: 50%;
-
-    transform:
-        translate(-50%, -50%);
 }
 
 
@@ -448,7 +434,7 @@ section {
 
 
 /* =========================
-   DISABLED CARD
+   DISABLED
 ========================= */
 
 .disabled {
@@ -555,552 +541,494 @@ section {
          FEATURED SONG
     ========================= -->
 
-    <section>
+    <div class="section-title">
+        FEATURED SONG
+    </div>
 
-        <div class="section-title">
-            FEATURED SONG
+    <div class="featured-card">
+
+        <div class="player-wrapper">
+
+            <iframe
+                id="youtubePlayer"
+                src="https://www.youtube.com/embed/VJncR7t_OT4"
+                title="xlRVlx Music Player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen>
+            </iframe>
+
         </div>
 
 
-        <div class="featured-card">
+        <div class="song-info">
 
-            <div class="player-wrapper">
+            <div
+                class="song-title"
+                id="songTitle">
 
-                <iframe
-                    id="youtubePlayer"
-                    src="https://www.youtube.com/embed/VJncR7t_OT4"
-                    title="xlRVlx Music Player"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    allowfullscreen>
-                </iframe>
+                Latest from xlRVlx
 
             </div>
 
 
-            <div class="song-info">
-
-                <div
-                    class="song-title"
-                    id="songTitle">
-
-                    Latest from xlRVlx
-
-                </div>
+            <div class="artist">
+                xlRVlx
+            </div>
 
 
-                <div class="artist">
-                    xlRVlx
-                </div>
+            <div
+                class="update-status"
+                id="updateStatus">
 
-
-                <div
-                    class="update-status"
-                    id="updateStatus">
-
-                    Checking latest upload...
-
-                </div>
-
-
-                <div class="player-controls">
-
-                    <button
-                        class="player-btn"
-                        id="previousBtn"
-                        onclick="showPreviousSong()">
-
-                        ◀ PREVIOUS
-
-                    </button>
-
-
-                    <button
-                        class="player-btn"
-                        id="nextBtn"
-                        onclick="showNextSong()">
-
-                        NEXT ▶
-
-                    </button>
-
-                </div>
-
-
-                <a
-                    id="youtubeButton"
-                    class="youtube-btn"
-                    href="https://www.youtube.com/watch?v=VJncR7t_OT4"
-                    target="_blank"
-                    rel="noopener noreferrer">
-
-                    VIEW YOUTUBE
-
-                </a>
+                Checking latest upload...
 
             </div>
 
+
+            <div class="player-controls">
+
+                <button
+                    class="player-btn"
+                    id="previousBtn"
+                    onclick="showPreviousSong()">
+
+                    ◀ PREVIOUS
+
+                </button>
+
+
+                <button
+                    class="player-btn"
+                    id="nextBtn"
+                    onclick="showNextSong()">
+
+                    NEXT ▶
+
+                </button>
+
+            </div>
+
+
+            <a
+                id="youtubeButton"
+                class="youtube-btn"
+                href="https://www.youtube.com/watch?v=VJncR7t_OT4"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                VIEW YOUTUBE
+
+            </a>
+
         </div>
 
-    </section>
+    </div>
 
 
     <!-- =========================
          FOLLOW & SUBSCRIBE
     ========================= -->
 
-    <section>
+    <div class="section-title">
+        FOLLOW &amp; SUBSCRIBE
+    </div>
 
-        <div class="section-title">
-            FOLLOW &amp; SUBSCRIBE
-        </div>
-
-
-        <div class="links-grid">
+    <div class="links-grid">
 
 
-            <!-- YOUTUBE -->
+        <!-- YOUTUBE -->
 
-            <a
-                class="card"
-                href="https://www.youtube.com/channel/UCT2xwca6wWHTygBPorpxujQ"
-                target="_blank"
-                rel="noopener noreferrer">
+        <a
+            class="card"
+            href="https://www.youtube.com/channel/UCT2xwca6wWHTygBPorpxujQ"
+            target="_blank"
+            rel="noopener noreferrer">
 
-                <div class="icon">
+            <div class="icon">
 
-                    <svg
-                        viewBox="0 0 24 24"
-                        preserveAspectRatio="xMidYMid meet">
+                <svg viewBox="0 0 24 24">
 
-                        <path
-                            fill="white"
-                            d="M21 7.2c0-1.77-1.43-3.2-3.2-3.2H6.2C4.43 4 3 5.43 3 7.2v9.6C3 18.57 4.43 20 6.2 20h11.6c1.77 0 3.2-1.43 3.2-3.2V7.2z"/>
+                    <path
+                        fill="white"
+                        d="M21 7.2c0-1.77-1.43-3.2-3.2-3.2H6.2C4.43 4 3 5.43 3 7.2v9.6C3 18.57 4.43 20 6.2 20h11.6c1.77 0 3.2-1.43 3.2-3.2V7.2z"/>
 
-                        <path
-                            fill="#111"
-                            d="M10 8l6 4-6 4V8z"/>
+                    <path
+                        fill="#111"
+                        d="M10 8l6 4-6 4V8z"/>
 
-                    </svg>
-
-                </div>
-
-
-                <div class="name">
-                    YOUTUBE
-                </div>
-
-
-                <div class="url-status">
-                    CHANNEL
-                </div>
-
-            </a>
-
-
-            <!-- YOUTUBE MUSIC -->
-
-            <div
-                class="card disabled"
-                title="YouTube Music link not added yet">
-
-                <div class="icon">
-
-                    <svg
-                        viewBox="0 0 24 24"
-                        preserveAspectRatio="xMidYMid meet">
-
-                        <circle
-                            cx="12"
-                            cy="12"
-                            r="9"
-                            fill="none"
-                            stroke="white"
-                            stroke-width="2"/>
-
-                        <path
-                            fill="white"
-                            d="M10 8l6 4-6 4V8z"/>
-
-                    </svg>
-
-                </div>
-
-
-                <div class="name">
-                    YOUTUBE MUSIC
-                </div>
-
-
-                <div class="url-status">
-                    LINK NEEDED
-                </div>
+                </svg>
 
             </div>
 
+            <div class="name">
+                YOUTUBE
+            </div>
 
-            <!-- TIKTOK -->
+            <div class="url-status">
+                CHANNEL
+            </div>
 
-            <a
-                class="card"
-                href="https://www.tiktok.com/@xlrvlx.l31"
-                target="_blank"
-                rel="noopener noreferrer">
-
-                <div class="icon">
-
-                    <svg
-                        viewBox="0 0 24 24"
-                        preserveAspectRatio="xMidYMid meet">
-
-                        <path
-                            fill="white"
-                            d="M15 3h3c.3 2 1.5 3.5 3.5 4v3c-1.5 0-2.8-.4-4-1.1v6.3c0 4-2.7 6.8-6.5 6.8S5 18.7 5 15.2c0-3.3 2.5-6.1 5.8-6.1.4 0 .8 0 1.2.1v3.3c-.4-.1-.8-.2-1.2-.2-1.5 0-2.7 1.2-2.7 2.8s1.2 2.8 2.7 2.8c1.8 0 2.7-1.2 2.7-3.1V3z"/>
-
-                    </svg>
-
-                </div>
+        </a>
 
 
-                <div class="name">
-                    TIKTOK
-                </div>
+        <!-- YOUTUBE MUSIC -->
 
+        <div
+            class="card disabled"
+            title="YouTube Music link not added yet">
 
-                <div class="url-status">
-                    @xlrvlx.l31
-                </div>
+            <div class="icon">
 
-            </a>
+                <svg viewBox="0 0 24 24">
 
+                    <circle
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        fill="white"/>
 
-            <!-- FACEBOOK -->
+                    <path
+                        fill="#111"
+                        d="M10 8.2v7.6l6-3.8-6-3.8z"/>
 
-            <a
-                class="card"
-                href="https://www.facebook.com/xlRVlx.L31"
-                target="_blank"
-                rel="noopener noreferrer">
+                </svg>
 
-                <div class="icon">
+            </div>
 
-                    <svg
-                        viewBox="0 0 24 24"
-                        preserveAspectRatio="xMidYMid meet">
+            <div class="name">
+                YOUTUBE MUSIC
+            </div>
 
-                        <path
-                            fill="white"
-                            d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm2.5 10H13v6h-3v-6H8v-2h2V8.8C10 6.9 11 6 12.8 6c.8 0 1.3.1 1.7.2v2.4h-1.3c-.9 0-1.2.4-1.2 1.1V10h2.4l-.4 2z"/>
-
-                    </svg>
-
-                </div>
-
-
-                <div class="name">
-                    FACEBOOK
-                </div>
-
-
-                <div class="url-status">
-                    xlRVlx.L31
-                </div>
-
-            </a>
-
-
-            <!-- INSTAGRAM -->
-
-            <a
-                class="card"
-                href="https://www.instagram.com/xlrvlx/"
-                target="_blank"
-                rel="noopener noreferrer">
-
-                <div class="icon">
-
-                    <svg
-                        viewBox="0 0 24 24"
-                        preserveAspectRatio="xMidYMid meet">
-
-                        <rect
-                            x="3"
-                            y="3"
-                            width="18"
-                            height="18"
-                            rx="5"
-                            fill="none"
-                            stroke="white"
-                            stroke-width="2"/>
-
-                        <circle
-                            cx="12"
-                            cy="12"
-                            r="4"
-                            fill="none"
-                            stroke="white"
-                            stroke-width="2"/>
-
-                        <circle
-                            cx="17.3"
-                            cy="6.7"
-                            r="1.2"
-                            fill="white"/>
-
-                    </svg>
-
-                </div>
-
-
-                <div class="name">
-                    INSTAGRAM
-                </div>
-
-
-                <div class="url-status">
-                    @xlrvlx
-                </div>
-
-            </a>
+            <div class="url-status">
+                LINK NEEDED
+            </div>
 
         </div>
 
-    </section>
+
+        <!-- TIKTOK -->
+
+        <a
+            class="card"
+            href="https://www.tiktok.com/@xlrvlx.l31"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            <div class="icon">
+
+                <svg viewBox="0 0 24 24">
+
+                    <path
+                        fill="white"
+                        d="M15 3h3c.3 2 1.5 3.5 3.5 4v3c-1.5 0-2.8-.4-4-1.1v6.3c0 4-2.7 6.8-6.5 6.8S5 18.7 5 15.2c0-3.3 2.5-6.1 5.8-6.1.4 0 .8 0 1.2.1v3.3c-.4-.1-.8-.2-1.2-.2-1.5 0-2.7 1.2-2.7 2.8s1.2 2.8 2.7 2.8c1.8 0 2.7-1.2 2.7-3.1V3z"/>
+
+                </svg>
+
+            </div>
+
+            <div class="name">
+                TIKTOK
+            </div>
+
+            <div class="url-status">
+                @xlrvlx.l31
+            </div>
+
+        </a>
+
+
+        <!-- FACEBOOK -->
+
+        <a
+            class="card"
+            href="https://www.facebook.com/xlRVlx.L31"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            <div class="icon">
+
+                <svg viewBox="0 0 24 24">
+
+                    <path
+                        fill="white"
+                        d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm2.5 10H13v6h-3v-6H8v-2h2V8.8C10 6.9 11 6 12.8 6c.8 0 1.3.1 1.7.2v2.4h-1.3c-.9 0-1.2.4-1.2 1.1V10h2.4l-.4 2z"/>
+
+                </svg>
+
+            </div>
+
+            <div class="name">
+                FACEBOOK
+            </div>
+
+            <div class="url-status">
+                xlRVlx.L31
+            </div>
+
+        </a>
+
+
+        <!-- INSTAGRAM -->
+
+        <a
+            class="card"
+            href="https://www.instagram.com/xlrvlx/"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            <div class="icon">
+
+                <svg viewBox="0 0 24 24">
+
+                    <rect
+                        x="3"
+                        y="3"
+                        width="18"
+                        height="18"
+                        rx="5"
+                        fill="none"
+                        stroke="white"
+                        stroke-width="2"/>
+
+                    <circle
+                        cx="12"
+                        cy="12"
+                        r="4"
+                        fill="none"
+                        stroke="white"
+                        stroke-width="2"/>
+
+                    <circle
+                        cx="17.3"
+                        cy="6.7"
+                        r="1.2"
+                        fill="white"/>
+
+                </svg>
+
+            </div>
+
+            <div class="name">
+                INSTAGRAM
+            </div>
+
+            <div class="url-status">
+                @xlrvlx
+            </div>
+
+        </a>
+
+    </div>
 
 
     <!-- =========================
          LISTEN ON STREAMING
     ========================= -->
 
-    <section>
+    <div class="section-title">
+        LISTEN ON STREAMING
+    </div>
 
-        <div class="section-title">
-            LISTEN ON STREAMING
-        </div>
-
-
-        <div class="links-grid">
+    <div class="links-grid">
 
 
-            <!-- SPOTIFY -->
+        <!-- SPOTIFY -->
 
-            <a
-                class="card"
-                href="https://open.spotify.com/artist/5k2lG14wZobFCRtap5tnZw"
-                target="_blank"
-                rel="noopener noreferrer">
+        <a
+            class="card"
+            href="https://open.spotify.com/artist/5k2lG14wZobFCRtap5tnZw"
+            target="_blank"
+            rel="noopener noreferrer">
 
-                <div class="icon">
+            <div class="icon">
 
-                    <svg
-                        viewBox="0 0 24 24"
-                        preserveAspectRatio="xMidYMid meet">
+                <svg viewBox="0 0 24 24">
 
-                        <circle
-                            cx="12"
-                            cy="12"
-                            r="10"
-                            fill="white"/>
+                    <circle
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        fill="white"/>
 
-                        <path
-                            d="M7 10.2c3.3-1 6.9-.8 10 .5"
-                            fill="none"
-                            stroke="#111"
-                            stroke-width="1.6"
-                            stroke-linecap="round"/>
+                    <path
+                        d="M7 10.2c3.3-1 6.9-.8 10 .5"
+                        fill="none"
+                        stroke="#111"
+                        stroke-width="1.6"
+                        stroke-linecap="round"/>
 
-                        <path
-                            d="M7.7 13c2.8-.7 5.7-.5 8.3.6"
-                            fill="none"
-                            stroke="#111"
-                            stroke-width="1.6"
-                            stroke-linecap="round"/>
+                    <path
+                        d="M7.7 13c2.8-.7 5.7-.5 8.3.6"
+                        fill="none"
+                        stroke="#111"
+                        stroke-width="1.6"
+                        stroke-linecap="round"/>
 
-                        <path
-                            d="M8.5 15.7c2.2-.5 4.3-.3 6.4.5"
-                            fill="none"
-                            stroke="#111"
-                            stroke-width="1.5"
-                            stroke-linecap="round"/>
+                    <path
+                        d="M8.5 15.7c2.2-.5 4.3-.3 6.4.5"
+                        fill="none"
+                        stroke="#111"
+                        stroke-width="1.5"
+                        stroke-linecap="round"/>
 
-                    </svg>
+                </svg>
 
-                </div>
+            </div>
 
+            <div class="name">
+                SPOTIFY
+            </div>
 
-                <div class="name">
-                    SPOTIFY
-                </div>
+            <div class="url-status">
+                ARTIST PROFILE
+            </div>
 
-
-                <div class="url-status">
-                    ARTIST PROFILE
-                </div>
-
-            </a>
+        </a>
 
 
-            <!-- APPLE MUSIC -->
+        <!-- APPLE MUSIC -->
 
-            <a
-                class="card"
-                href="https://music.apple.com/us/artist/xlrvlx/6799604888"
-                target="_blank"
-                rel="noopener noreferrer">
+        <a
+            class="card"
+            href="https://music.apple.com/us/artist/xlrvlx/6799604888"
+            target="_blank"
+            rel="noopener noreferrer">
 
-                <div class="icon">
+            <div class="icon">
 
-                    <svg
-                        viewBox="0 0 24 24"
-                        preserveAspectRatio="xMidYMid meet">
+                <svg viewBox="0 0 24 24">
 
-                        <path
-                            fill="white"
-                            d="M16.6 2.1c.1 1-.3 2-1 2.8-.7.8-1.8 1.3-2.8 1.2-.1-1 .3-2 .9-2.7.7-.8 1.8-1.3 2.9-1.3zM20.5 16.9c-.5 1.1-1.1 2.1-2 3-.8.9-1.7 1.8-3.1 1.8-1.3 0-1.7-.8-3.1-.8-1.4 0-1.9.8-3.1.8-1.3 0-2.2-.8-3-1.7-2.5-2.6-2.8-7.1-1.2-9.5 1.1-1.7 2.8-2.7 4.4-2.7 1.3 0 2.4.9 3.1.9.8 0 2.1-1 3.6-.9.6 0 2.5.2 3.7 2-.1.1-2.2 1.3-2.2 4 0 3.1 2.7 4.2 2.8 4.3z"/>
+                    <path
+                        fill="white"
+                        d="M16.2 3.5c-1 .1-2.2.8-2.8 1.6-.6.7-1.1 1.8-.9 2.8 1.1.1 2.2-.6 2.8-1.4.6-.8 1-1.9.9-3z"/>
 
-                    </svg>
+                    <path
+                        fill="white"
+                        d="M18.8 12.7c0-2.4 2-3.6 2.1-3.7-1.1-1.6-2.8-1.8-3.4-1.9-1.4-.1-2.7.8-3.4.8-.7 0-1.8-.8-2.9-.8-1.5 0-2.9.9-3.7 2.2-1.6 2.7-.4 6.7 1.1 8.9.8 1.1 1.6 2.3 2.8 2.2 1.1 0 1.6-.7 3-.7 1.4 0 1.8.7 3 .7 1.2 0 2-1.1 2.7-2.2.9-1.3 1.3-2.6 1.3-2.7-.1 0-2.6-1-2.6-3.8z"/>
 
-                </div>
+                </svg>
 
+            </div>
 
-                <div class="name">
-                    APPLE MUSIC
-                </div>
+            <div class="name">
+                APPLE MUSIC
+            </div>
 
+            <div class="url-status">
+                ARTIST PROFILE
+            </div>
 
-                <div class="url-status">
-                    ARTIST PROFILE
-                </div>
-
-            </a>
-
-
-            <!-- BANDCAMP -->
-
-            <a
-                class="card"
-                href="https://xlrvlx31.bandcamp.com/?ui_context=usernav"
-                target="_blank"
-                rel="noopener noreferrer">
-
-                <div class="icon">
-
-                    <svg
-                        viewBox="0 0 24 24"
-                        preserveAspectRatio="xMidYMid meet">
-
-                        <path
-                            fill="white"
-                            d="M2 18h14l6-12H8L2 18z"/>
-
-                    </svg>
-
-                </div>
+        </a>
 
 
-                <div class="name">
-                    BANDCAMP
-                </div>
+        <!-- BANDCAMP -->
 
+        <a
+            class="card"
+            href="https://xlrvlx31.bandcamp.com/?ui_context=usernav"
+            target="_blank"
+            rel="noopener noreferrer">
 
-                <div class="url-status">
-                    MUSIC STORE
-                </div>
+            <div class="icon">
 
-            </a>
+                <svg viewBox="0 0 24 24">
 
-        </div>
+                    <path
+                        fill="white"
+                        d="M2 18h14l6-12H8L2 18z"/>
 
-    </section>
+                </svg>
+
+            </div>
+
+            <div class="name">
+                BANDCAMP
+            </div>
+
+            <div class="url-status">
+                MUSIC STORE
+            </div>
+
+        </a>
+
+    </div>
 
 
     <!-- =========================
-         MORE FROM XLRVLX
+         MORE FROM xlRVlx
     ========================= -->
 
-    <section>
+    <div class="section-title">
+        MORE FROM xlRVlx
+    </div>
 
-        <div class="section-title">
-            MORE FROM xlRVlx
-        </div>
-
-
-        <div class="links-grid">
+    <div class="links-grid">
 
 
-            <!-- X.COM -->
+        <!-- X.COM -->
 
-            <a
-                class="card"
-                href="https://x.com/xlRVlx1231"
-                target="_blank"
-                rel="noopener noreferrer">
+        <a
+            class="card"
+            href="https://x.com/xlRVlx1231"
+            target="_blank"
+            rel="noopener noreferrer">
 
-                <div class="icon">
+            <div class="icon">
 
-                    <svg
-                        viewBox="0 0 24 24"
-                        preserveAspectRatio="xMidYMid meet">
+                <svg viewBox="0 0 24 24">
 
-                        <path
-                            fill="white"
-                            d="M18.244 2.25h3.308l-7.227 8.26L22.83 21.75h-6.618l-5.19-6.793-5.935 6.793H1.777l7.73-8.835L1.17 2.25H7.956l4.69 6.204 5.598-6.204zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/>
+                    <path
+                        fill="white"
+                        d="M18.244 2.25h3.308l-7.227 8.26L22.83 21.75h-6.618l-5.19-6.793-5.935 6.793H1.777l7.73-8.835L1.17 2.25H7.956l4.69 6.204 5.598-6.204zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/>
 
-                    </svg>
+                </svg>
 
-                </div>
+            </div>
 
+            <div class="name">
+                X.COM
+            </div>
 
-                <div class="name">
-                    X.COM
-                </div>
+            <div class="url-status">
+                @xlRVlx1231
+            </div>
 
-
-                <div class="url-status">
-                    @xlRVlx1231
-                </div>
-
-            </a>
+        </a>
 
 
-            <!-- PINTEREST -->
+        <!-- PINTEREST -->
 
-            <a
-                class="card"
-                href="https://ph.pinterest.com/dummz421/"
-                target="_blank"
-                rel="noopener noreferrer">
+        <a
+            class="card"
+            href="https://ph.pinterest.com/dummz421/"
+            target="_blank"
+            rel="noopener noreferrer">
 
-                <div class="icon">
+            <div class="icon">
 
-                    <svg
-                        viewBox="0 0 24 24"
-                        preserveAspectRatio="xMidYMid meet">
+                <svg viewBox="0 0 24 24">
 
-                        <path
-                            fill="white"
-                            d="M12 2a10 10 0 0 0-3.6 19.3c-.1-1.6 0-3.5.4-5.1l1.2-5.1s-.3-.7-.3-1.7c0-1.6.9-2.8 2.1-2.8 1 0 1.5.8 1.5 1.7 0 1-.6 2.4-.9 3.7-.3 1.1.6 2 1.7 2 2.1 0 3.7-2.2 3.7-5.3 0-2.8-2-4.8-4.9-4.8-3.4 0-5.4 2.5-5.4 5.1 0 1 .4 2.1.9 2.7.1.1.1.2.1.4l-.3 1.1c-.1.4-.3.5-.7.3-1.5-.7-2.4-2.8-2.4-4.5 0-3.7 2.7-7.1 7.8-7.1 4.1 0 7.2 2.9 7.2 6.7 0 4-2.5 7.2-6 7.2-1.2 0-2.3-.6-2.7-1.3l-.8 3.1c-.3 1.2-1.1 2.7-1.6 3.6A10 10 0 1 0 12 2z"/>
+                    <path
+                        fill="white"
+                        d="M12 2a10 10 0 0 0-3.6 19.3c-.1-1.6 0-3.5.4-5.1l1.2-5.1s-.3-.7-.3-1.7c0-1.6.9-2.8 2.1-2.8 1 0 1.5.8 1.5 1.7 0 1-.6 2.4-.9 3.7-.3 1.1.6 2 1.7 2 2.1 0 3.7-2.2 3.7-5.3 0-2.8-2-4.8-4.9-4.8-3.4 0-5.4 2.5-5.4 5.1 0 1 .4 2.1.9 2.7.1.1.1.2.1.4l-.3 1.1c-.1.4-.3.5-.7.3-1.5-.7-2.4-2.8-2.4-4.5 0-3.7 2.7-7.1 7.8-7.1 4.1 0 7.2 2.9 7.2 6.7 0 4-2.5 7.2-6 7.2-1.2 0-2.3-.6-2.7-1.3l-.8 3.1c-.3 1.2-1.1 2.7-1.6 3.6A10 10 0 1 0 12 2z"/>
 
-                    </svg>
+                </svg>
 
-                </div>
+            </div>
 
+            <div class="name">
+                PINTEREST
+            </div>
 
-                <div class="name">
-                    PINTEREST
-                </div>
+            <div class="url-status">
+                @dummz421
+            </div>
 
+        </a>
 
-                <div class="url-status">
-                    @dummz421
-                </div>
-
-            </a>
-
-        </div>
-
-    </section>
+    </div>
 
 
     <!-- =========================
@@ -1114,9 +1042,7 @@ section {
 </div>
 
 
-
 <script>
-
 
 /* =========================
    YOUTUBE SETTINGS
@@ -1128,11 +1054,9 @@ const CHANNEL_ID =
 const FALLBACK_VIDEO_ID =
     "VJncR7t_OT4";
 
-
 const RSS_URL =
     "https://www.youtube.com/feeds/videos.xml?channel_id="
     + CHANNEL_ID;
-
 
 const API_URL =
     "https://api.rss2json.com/v1/api.json?rss_url="
@@ -1215,14 +1139,11 @@ function displaySong(
         return;
     }
 
-
     const song =
         songs[index];
 
-
     let playerURL =
         `https://www.youtube.com/embed/${song.id}`;
-
 
     if (autoplay) {
 
@@ -1231,18 +1152,14 @@ function displaySong(
 
     }
 
-
     player.src =
         playerURL;
-
 
     songTitle.textContent =
         song.title;
 
-
     youtubeButton.href =
         song.link;
-
 
     updateButtons();
 
@@ -1250,7 +1167,7 @@ function displaySong(
 
 
 /* =========================
-   NEXT SONG
+   NEXT
 ========================= */
 
 function showNextSong() {
@@ -1273,7 +1190,7 @@ function showNextSong() {
 
 
 /* =========================
-   PREVIOUS SONG
+   PREVIOUS
 ========================= */
 
 function showPreviousSong() {
@@ -1295,7 +1212,7 @@ function showPreviousSong() {
 
 
 /* =========================
-   LOAD LATEST UPLOAD
+   LOAD LATEST YOUTUBE UPLOAD
 ========================= */
 
 async function loadLatestYouTubeUpload() {
@@ -1305,7 +1222,6 @@ async function loadLatestYouTubeUpload() {
         const response =
             await fetch(API_URL);
 
-
         if (!response.ok) {
 
             throw new Error(
@@ -1314,10 +1230,8 @@ async function loadLatestYouTubeUpload() {
 
         }
 
-
         const data =
             await response.json();
-
 
         if (
             data.status !== "ok" ||
@@ -1331,24 +1245,19 @@ async function loadLatestYouTubeUpload() {
 
         }
 
-
         songs =
             data.items
-
             .map(item => {
 
                 let videoId = "";
 
-
                 const guid =
                     item.guid || "";
-
 
                 const guidMatch =
                     guid.match(
                         /video:([a-zA-Z0-9_-]+)/
                     );
-
 
                 if (guidMatch) {
 
@@ -1356,7 +1265,6 @@ async function loadLatestYouTubeUpload() {
                         guidMatch[1];
 
                 }
-
 
                 if (
                     !videoId &&
@@ -1368,7 +1276,6 @@ async function loadLatestYouTubeUpload() {
                             /[?&]v=([a-zA-Z0-9_-]+)/
                         );
 
-
                     if (linkMatch) {
 
                         videoId =
@@ -1377,7 +1284,6 @@ async function loadLatestYouTubeUpload() {
                     }
 
                 }
-
 
                 return {
 
@@ -1394,7 +1300,6 @@ async function loadLatestYouTubeUpload() {
                 };
 
             })
-
             .filter(
                 song => song.id
             );
@@ -1410,21 +1315,23 @@ async function loadLatestYouTubeUpload() {
 
 
         /*
-         * Latest upload = index 0
-         *
-         * NEXT = older upload
-         *
-         * PREVIOUS = newer upload
-         */
+
+            Latest upload = index 0
+
+            NEXT =
+            older upload
+
+            PREVIOUS =
+            newer upload
+
+        */
 
         currentSongIndex = 0;
-
 
         displaySong(
             currentSongIndex,
             false
         );
-
 
         status.textContent =
             "Latest from xlRVlx";
@@ -1436,7 +1343,6 @@ async function loadLatestYouTubeUpload() {
             "YouTube RSS error:",
             error
         );
-
 
         songs = [
 
@@ -1455,15 +1361,12 @@ async function loadLatestYouTubeUpload() {
 
         ];
 
-
         currentSongIndex = 0;
-
 
         displaySong(
             currentSongIndex,
             false
         );
-
 
         status.textContent =
             "Featured song from xlRVlx";
