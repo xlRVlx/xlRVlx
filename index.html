@@ -37,7 +37,6 @@
       font-size: 52px;
       font-weight: 900;
       letter-spacing: 3px;
-      text-transform: none;
     }
 
     header p {
@@ -321,6 +320,7 @@
         </div>
 
         <div style="text-align:center;">
+
           <a
             id="youtubeButton"
             class="youtube-btn"
@@ -329,6 +329,7 @@
             rel="noopener noreferrer">
             VIEW YOUTUBE
           </a>
+
         </div>
 
       </div>
@@ -361,6 +362,7 @@
           </svg>
 
           YouTube
+
         </a>
 
 
@@ -375,6 +377,7 @@
           </svg>
 
           YouTube Music
+
         </a>
 
 
@@ -390,6 +393,7 @@
           </svg>
 
           TikTok
+
         </a>
 
 
@@ -405,6 +409,7 @@
           </svg>
 
           Facebook
+
         </a>
 
 
@@ -422,6 +427,7 @@
           </svg>
 
           Instagram
+
         </a>
 
       </div>
@@ -456,6 +462,7 @@
           </svg>
 
           Spotify
+
         </a>
 
 
@@ -471,6 +478,7 @@
           </svg>
 
           Apple Music
+
         </a>
 
 
@@ -486,6 +494,7 @@
           </svg>
 
           Bandcamp
+
         </a>
 
       </div>
@@ -517,6 +526,7 @@
           </svg>
 
           X.com
+
         </a>
 
 
@@ -533,6 +543,7 @@
           </svg>
 
           Pinterest
+
         </a>
 
       </div>
@@ -555,25 +566,50 @@
 
   <script>
 
-    const CHANNEL_ID = "UCT2xwca6wWHTygBPorpxujQ";
+    const CHANNEL_ID =
+      "UCT2xwca6wWHTygBPorpxujQ";
 
-    // Backup song if the automatic feed cannot be loaded
-    const FALLBACK_VIDEO_ID = "VJncR7t_OT4";
+    /*
+      Backup song.
+      This will be used if the automatic
+      YouTube feed cannot be loaded.
+    */
+    const FALLBACK_VIDEO_ID =
+      "VJncR7t_OT4";
 
+
+    /*
+      YouTube RSS feed
+    */
     const RSS_URL =
       "https://www.youtube.com/feeds/videos.xml?channel_id=" +
       CHANNEL_ID;
 
+
+    /*
+      RSS2JSON converts the YouTube RSS
+      feed so the browser can read it.
+    */
     const API_URL =
       "https://api.rss2json.com/v1/api.json?rss_url=" +
       encodeURIComponent(RSS_URL);
 
 
+    /*
+      Song list
+    */
     let songs = [];
 
+    /*
+      0 = latest upload
+      Higher numbers = older uploads
+    */
     let currentSongIndex = 0;
 
 
+    /*
+      HTML elements
+    */
     const player =
       document.getElementById("youtubePlayer");
 
@@ -594,9 +630,8 @@
 
 
     /*
-      Load the latest uploads from YouTube
+      LOAD YOUTUBE UPLOADS
     */
-
     async function loadLatestYouTubeUploads() {
 
       try {
@@ -604,40 +639,52 @@
         const response =
           await fetch(API_URL);
 
+
         if (!response.ok) {
-          throw new Error("Feed request failed");
+          throw new Error(
+            "Feed request failed"
+          );
         }
+
 
         const data =
           await response.json();
+
 
         if (
           data.status !== "ok" ||
           !data.items ||
           data.items.length === 0
         ) {
-          throw new Error("No uploads found");
+
+          throw new Error(
+            "No uploads found"
+          );
+
         }
 
 
         /*
-          Convert the RSS results into
-          simple song objects.
+          Convert the RSS results
+          into our song list.
         */
-
         songs = data.items
+
           .map(item => {
 
             let videoId = null;
 
 
-            // Try GUID
+            /*
+              Try GUID
+            */
             if (item.guid) {
 
               const match =
                 item.guid.match(
                   /video:([a-zA-Z0-9_-]+)/
                 );
+
 
               if (match) {
                 videoId = match[1];
@@ -646,13 +693,19 @@
             }
 
 
-            // Try YouTube link
-            if (!videoId && item.link) {
+            /*
+              Try normal YouTube URL
+            */
+            if (
+              !videoId &&
+              item.link
+            ) {
 
               const match =
                 item.link.match(
                   /[?&]v=([a-zA-Z0-9_-]+)/
                 );
+
 
               if (match) {
                 videoId = match[1];
@@ -662,33 +715,60 @@
 
 
             return {
+
               id: videoId,
-              title: item.title || "xlRVlx — Official Music",
+
+              title:
+                item.title ||
+                "xlRVlx — Official Music",
+
               link:
                 item.link ||
                 `https://www.youtube.com/watch?v=${videoId}`
+
             };
 
           })
-          .filter(song => song.id);
 
 
-        if (songs.length === 0) {
-          throw new Error("No valid videos found");
+          /*
+            Remove invalid entries.
+          */
+          .filter(
+            song => song.id
+          );
+
+
+        if (
+          songs.length === 0
+        ) {
+
+          throw new Error(
+            "No valid videos found"
+          );
+
         }
 
 
         /*
-          RSS results are normally newest first.
-          So index 0 = latest song.
+          The first result is the
+          latest upload.
         */
-
         currentSongIndex = 0;
 
-        displaySong(currentSongIndex);
+
+        /*
+          Show latest song.
+        */
+        displaySong(
+          currentSongIndex,
+          false
+        );
+
 
         status.textContent =
           "Latest from xlRVlx";
+
 
         updateButtons();
 
@@ -703,24 +783,36 @@
 
 
         /*
-          Keep the backup song working.
+          Backup song.
         */
-
         songs = [
+
           {
-            id: FALLBACK_VIDEO_ID,
-            title: "xlRVlx — Official Music",
+            id:
+              FALLBACK_VIDEO_ID,
+
+            title:
+              "xlRVlx — Official Music",
+
             link:
               `https://www.youtube.com/watch?v=${FALLBACK_VIDEO_ID}`
           }
+
         ];
+
 
         currentSongIndex = 0;
 
-        displaySong(currentSongIndex);
+
+        displaySong(
+          currentSongIndex,
+          false
+        );
+
 
         status.textContent =
           "Featured song from xlRVlx";
+
 
         updateButtons();
 
@@ -730,16 +822,25 @@
 
 
     /*
-      Display selected song
-    */
+      DISPLAY SONG
 
-    function displaySong(index) {
+      autoplay = true
+      means the song should begin
+      playing when NEXT/PREVIOUS
+      is clicked.
+    */
+    function displaySong(
+      index,
+      autoplay = false
+    ) {
 
       if (
         !songs.length ||
         !songs[index]
       ) {
+
         return;
+
       }
 
 
@@ -747,18 +848,49 @@
         songs[index];
 
 
-      player.src =
+      /*
+        Build YouTube player URL.
+
+        autoplay=1 is added when
+        the visitor clicks NEXT
+        or PREVIOUS.
+      */
+      let playerURL =
         `https://www.youtube.com/embed/${song.id}`;
 
 
+      if (autoplay) {
+
+        playerURL +=
+          "?autoplay=1";
+
+      }
+
+
+      /*
+        Change the video.
+      */
+      player.src =
+        playerURL;
+
+
+      /*
+        Change title.
+      */
       songTitle.textContent =
         song.title;
 
 
+      /*
+        Change YouTube button.
+      */
       youtubeButton.href =
         song.link;
 
 
+      /*
+        Update button states.
+      */
       updateButtons();
 
     }
@@ -766,9 +898,9 @@
 
     /*
       NEXT SONG
-      Moves toward older uploads.
-    */
 
+      Latest → Older
+    */
     function showNextSong() {
 
       if (
@@ -778,7 +910,11 @@
 
         currentSongIndex++;
 
-        displaySong(currentSongIndex);
+
+        displaySong(
+          currentSongIndex,
+          true
+        );
 
       }
 
@@ -787,9 +923,9 @@
 
     /*
       PREVIOUS SONG
-      Moves toward newer uploads.
-    */
 
+      Older → Newer
+    */
     function showPreviousSong() {
 
       if (
@@ -798,7 +934,11 @@
 
         currentSongIndex--;
 
-        displaySong(currentSongIndex);
+
+        displaySong(
+          currentSongIndex,
+          true
+        );
 
       }
 
@@ -806,15 +946,23 @@
 
 
     /*
-      Enable / disable navigation buttons
+      BUTTON STATES
     */
-
     function updateButtons() {
 
+      /*
+        Disable PREVIOUS
+        when already at newest song.
+      */
       previousBtn.disabled =
         currentSongIndex <= 0;
 
 
+      /*
+        Disable NEXT
+        when already at oldest song
+        available in the feed.
+      */
       nextBtn.disabled =
         currentSongIndex >=
         songs.length - 1;
@@ -823,9 +971,8 @@
 
 
     /*
-      Start automatic loading
+      START
     */
-
     loadLatestYouTubeUploads();
 
   </script>
