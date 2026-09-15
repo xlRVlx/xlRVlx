@@ -29,14 +29,20 @@
         text-align: center;
     }
 
+    /* =========================
+       HEADER
+    ========================= */
+
     .logo {
         font-size: 48px;
         font-weight: 900;
         letter-spacing: 4px;
         margin-bottom: 8px;
+
         background: linear-gradient(90deg, #fff, #aaa, #fff);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
+
         text-shadow: 0 0 25px rgba(255,255,255,.15);
     }
 
@@ -48,7 +54,9 @@
         margin-bottom: 40px;
     }
 
-    /* SECTIONS */
+    /* =========================
+       SECTIONS
+    ========================= */
 
     section {
         margin-bottom: 50px;
@@ -61,7 +69,9 @@
         margin-bottom: 22px;
     }
 
-    /* FEATURED SONG */
+    /* =========================
+       FEATURED SONG
+    ========================= */
 
     .featured-card {
         width: 100%;
@@ -71,6 +81,7 @@
         background: linear-gradient(145deg, #1c1c1c, #101010);
         border: 1px solid #292929;
         border-radius: 18px;
+
         padding: 20px;
 
         box-shadow: 0 15px 40px rgba(0,0,0,.35);
@@ -79,8 +90,10 @@
     .player-wrapper {
         width: 100%;
         aspect-ratio: 16 / 9;
+
         border-radius: 12px;
         overflow: hidden;
+
         background: #000;
     }
 
@@ -114,24 +127,31 @@
         text-transform: uppercase;
     }
 
-    /* PLAYER BUTTONS */
+    /* =========================
+       PLAYER BUTTONS
+    ========================= */
 
     .player-controls {
         display: flex;
         justify-content: center;
+        align-items: center;
         gap: 12px;
         margin-top: 20px;
+        flex-wrap: wrap;
     }
 
     .player-btn {
         border: 1px solid #333;
         background: #181818;
         color: #fff;
+
         padding: 11px 20px;
         border-radius: 10px;
+
         font-size: 12px;
         font-weight: 800;
         letter-spacing: 1px;
+
         cursor: pointer;
 
         transition:
@@ -154,6 +174,7 @@
 
     .youtube-btn {
         display: inline-block;
+
         margin-top: 15px;
         padding: 10px 18px;
 
@@ -161,6 +182,7 @@
         color: #111;
 
         border-radius: 9px;
+
         text-decoration: none;
 
         font-size: 11px;
@@ -175,7 +197,9 @@
         opacity: .85;
     }
 
-    /* SOCIAL GRID */
+    /* =========================
+       SOCIAL GRID
+    ========================= */
 
     .links-grid {
         display: grid;
@@ -183,7 +207,9 @@
         gap: 18px;
     }
 
-    /* OLD SQUARE CARD STYLE */
+    /* =========================
+       SQUARE SOCIAL CARDS
+    ========================= */
 
     .card {
         position: relative;
@@ -192,6 +218,7 @@
         aspect-ratio: 1 / 1;
 
         background: linear-gradient(145deg, #1c1c1c, #101010);
+
         border: 1px solid #292929;
         border-radius: 18px;
 
@@ -200,10 +227,12 @@
 
         display: flex;
         flex-direction: column;
+
         justify-content: center;
         align-items: center;
 
         gap: 15px;
+
         overflow: hidden;
 
         transition:
@@ -215,13 +244,16 @@
 
     .card::before {
         content: "";
+
         position: absolute;
 
         width: 120px;
         height: 120px;
 
         background: rgba(255,255,255,.04);
+
         border-radius: 50%;
+
         filter: blur(25px);
 
         transition: .3s;
@@ -229,9 +261,14 @@
 
     .card:hover {
         transform: translateY(-8px);
+
         border-color: #555;
-        background: linear-gradient(145deg, #252525, #111);
-        box-shadow: 0 15px 40px rgba(0,0,0,.6);
+
+        background:
+            linear-gradient(145deg, #252525, #111);
+
+        box-shadow:
+            0 15px 40px rgba(0,0,0,.6);
     }
 
     .card:hover::before {
@@ -239,7 +276,9 @@
         background: rgba(255,255,255,.08);
     }
 
-    /* OLD SVG ICON STYLE */
+    /* =========================
+       CENTERED ICON
+    ========================= */
 
     .icon {
         width: 58px;
@@ -251,12 +290,20 @@
         display: flex;
         justify-content: center;
         align-items: center;
+
+        flex-shrink: 0;
     }
 
     .icon svg {
         width: 58px;
         height: 58px;
+
+        display: block;
     }
+
+    /* =========================
+       CARD TEXT
+    ========================= */
 
     .name {
         position: relative;
@@ -264,7 +311,10 @@
 
         font-size: 14px;
         font-weight: 800;
+
         letter-spacing: 1.5px;
+
+        text-align: center;
     }
 
     .url-status {
@@ -272,11 +322,18 @@
         z-index: 2;
 
         font-size: 10px;
+
         color: #666;
 
         text-transform: uppercase;
         letter-spacing: 1px;
+
+        text-align: center;
     }
+
+    /* =========================
+       DISABLED CARD
+    ========================= */
 
     .disabled {
         opacity: .45;
@@ -289,20 +346,33 @@
         border-color: #292929;
     }
 
+    /* =========================
+       FOOTER
+    ========================= */
+
     .footer {
         margin-top: 35px;
+
         color: #555;
+
         font-size: 11px;
         letter-spacing: 2px;
     }
 
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
     @media (max-width: 1000px) {
+
         .links-grid {
             grid-template-columns: repeat(3, 1fr);
         }
+
     }
 
     @media (max-width: 650px) {
+
         body {
             padding: 25px 15px;
         }
@@ -317,14 +387,21 @@
         }
 
         .player-controls {
-            flex-wrap: wrap;
+            gap: 8px;
         }
+
+        .player-btn {
+            padding: 10px 15px;
+        }
+
     }
 
     @media (max-width: 400px) {
+
         .links-grid {
             grid-template-columns: 1fr;
         }
+
     }
 </style>
 </head>
@@ -333,16 +410,22 @@
 
 <div class="container">
 
-    <div class="logo">xlRVlx</div>
+    <!-- =========================
+         HEADER
+    ========================= -->
+
+    <div class="logo">
+        xlRVlx
+    </div>
 
     <div class="subtitle">
         Music &amp; Social Links
     </div>
 
 
-    <!-- ========================================= -->
-    <!-- FEATURED SONG -->
-    <!-- ========================================= -->
+    <!-- =========================
+         FEATURED SONG
+    ========================= -->
 
     <section>
 
@@ -366,18 +449,29 @@
 
             </div>
 
+
             <div class="song-info">
 
-                <div class="song-title" id="songTitle">
+                <div
+                    class="song-title"
+                    id="songTitle">
+
                     Latest from xlRVlx
+
                 </div>
+
 
                 <div class="artist">
                     xlRVlx
                 </div>
 
-                <div class="update-status" id="updateStatus">
+
+                <div
+                    class="update-status"
+                    id="updateStatus">
+
                     Checking latest upload...
+
                 </div>
 
 
@@ -423,10 +517,9 @@
     </section>
 
 
-
-    <!-- ========================================= -->
-    <!-- FOLLOW & SUBSCRIBE -->
-    <!-- ========================================= -->
+    <!-- =========================
+         FOLLOW & SUBSCRIBE
+    ========================= -->
 
     <section>
 
@@ -468,7 +561,7 @@
                 </div>
 
                 <div class="url-status">
-                    Channel
+                    CHANNEL
                 </div>
 
             </a>
@@ -507,7 +600,7 @@
                 </div>
 
                 <div class="url-status">
-                    Link Needed
+                    LINK NEEDED
                 </div>
 
             </div>
@@ -635,10 +728,9 @@
     </section>
 
 
-
-    <!-- ========================================= -->
-    <!-- LISTEN ON STREAMING -->
-    <!-- ========================================= -->
+    <!-- =========================
+         LISTEN ON STREAMING
+    ========================= -->
 
     <section>
 
@@ -701,7 +793,7 @@
                 </div>
 
                 <div class="url-status">
-                    Artist Profile
+                    ARTIST PROFILE
                 </div>
 
             </a>
@@ -733,7 +825,7 @@
                 </div>
 
                 <div class="url-status">
-                    Artist Profile
+                    ARTIST PROFILE
                 </div>
 
             </a>
@@ -765,7 +857,7 @@
                 </div>
 
                 <div class="url-status">
-                    Music Store
+                    MUSIC STORE
                 </div>
 
             </a>
@@ -775,10 +867,9 @@
     </section>
 
 
-
-    <!-- ========================================= -->
-    <!-- MORE FROM XLRVLX -->
-    <!-- ========================================= -->
+    <!-- =========================
+         MORE FROM XLRVLX
+    ========================= -->
 
     <section>
 
@@ -857,8 +948,9 @@
     </section>
 
 
-
-    <!-- FOOTER -->
+    <!-- =========================
+         FOOTER
+    ========================= -->
 
     <div class="footer">
         © xlRVlx — OFFICIAL LINKS
@@ -920,9 +1012,9 @@
     }
 
 
-    /*
-     * KEEPING YOUR WORKING NEXT/PREVIOUS CODE
-     */
+    /* =========================
+       WORKING SONG DISPLAY
+    ========================= */
 
     function displaySong(index, autoplay = false) {
 
@@ -952,6 +1044,10 @@
     }
 
 
+    /* =========================
+       NEXT
+    ========================= */
+
     function showNextSong() {
 
         if (currentSongIndex < songs.length - 1) {
@@ -967,6 +1063,10 @@
 
     }
 
+
+    /* =========================
+       PREVIOUS
+    ========================= */
 
     function showPreviousSong() {
 
@@ -984,9 +1084,9 @@
     }
 
 
-    /*
-     * AUTOMATIC LATEST YOUTUBE UPLOAD
-     */
+    /* =========================
+       AUTOMATIC YOUTUBE UPLOADS
+    ========================= */
 
     async function loadLatestYouTubeUpload() {
 
@@ -996,13 +1096,17 @@
                 await fetch(API_URL);
 
             if (!response.ok) {
+
                 throw new Error(
                     "Unable to fetch uploads"
                 );
+
             }
+
 
             const data =
                 await response.json();
+
 
             if (
                 data.status !== "ok" ||
@@ -1022,17 +1126,22 @@
 
                     let videoId = "";
 
+
                     const guid =
                         item.guid || "";
+
 
                     const guidMatch =
                         guid.match(
                             /video:([a-zA-Z0-9_-]+)/
                         );
 
+
                     if (guidMatch) {
+
                         videoId =
                             guidMatch[1];
+
                     }
 
 
@@ -1043,9 +1152,12 @@
                                 /[?&]v=([a-zA-Z0-9_-]+)/
                             );
 
+
                         if (linkMatch) {
+
                             videoId =
                                 linkMatch[1];
+
                         }
 
                     }
@@ -1066,6 +1178,7 @@
                     };
 
                 })
+
                 .filter(song => song.id);
 
 
@@ -1080,10 +1193,11 @@
 
             /*
              * Latest = index 0
-             * Older uploads follow after it.
+             * Older uploads = index 1, 2, 3...
              */
 
             currentSongIndex = 0;
+
 
             displaySong(
                 currentSongIndex,
@@ -1120,6 +1234,7 @@
 
             currentSongIndex = 0;
 
+
             displaySong(
                 currentSongIndex,
                 false
@@ -1133,6 +1248,10 @@
 
     }
 
+
+    /*
+     * LOAD AUTOMATICALLY
+     */
 
     loadLatestYouTubeUpload();
 
