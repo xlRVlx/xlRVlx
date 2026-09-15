@@ -131,6 +131,13 @@
       background: #ddd;
     }
 
+    .update-status {
+      margin-top: 12px;
+      color: #666;
+      font-size: 10px;
+      letter-spacing: 0.5px;
+    }
+
     /* =========================
        SECTIONS
     ========================= */
@@ -317,13 +324,13 @@
 
 
     <!-- =========================
-         SINGLE SONG PLAYER
+         AUTOMATIC FEATURED SONG
     ========================= -->
 
     <section class="player-section">
 
       <div class="section-title">
-        LISTEN TO MY MUSIC
+        FEATURED SONG
       </div>
 
       <div class="player">
@@ -331,8 +338,9 @@
         <div class="youtube-frame">
 
           <iframe
+            id="youtubePlayer"
             src="https://www.youtube.com/embed/VJncR7t_OT4"
-            title="xlRVlx Music Player"
+            title="xlRVlx Featured Song"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="strict-origin-when-cross-origin"
@@ -344,7 +352,7 @@
         <div class="player-info">
 
           <div>
-            <div class="player-song">
+            <div class="player-song" id="songTitle">
               xlRVlx — Official Music
             </div>
 
@@ -354,6 +362,7 @@
           </div>
 
           <a
+            id="youtubeButton"
             class="youtube-button"
             href="https://www.youtube.com/watch?v=VJncR7t_OT4"
             target="_blank"
@@ -361,6 +370,10 @@
             VIEW YOUTUBE
           </a>
 
+        </div>
+
+        <div class="update-status" id="updateStatus">
+          Checking latest upload...
         </div>
 
       </div>
@@ -453,7 +466,7 @@
 
           <div class="icon">
             <svg viewBox="0 0 24 24">
-              <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5zM17.5 6.5a1 1 0 1 1-1 1 1 1 0 0 1 1-1z"/>
+              <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5zM17.5 6.5a1 1 0 1 1-1 1 1 1 0 0 1-1-1z"/>
             </svg>
           </div>
 
@@ -597,6 +610,180 @@
     </footer>
 
   </div>
+
+
+  <!-- =========================
+       AUTOMATIC LATEST UPLOAD
+  ========================= -->
+
+  <script>
+
+    /*
+      xlRVlx YouTube Channel
+    */
+    const CHANNEL_ID = "UCT2xwca6wWHTygBPorpxujQ";
+
+
+    /*
+      FALLBACK VIDEO
+
+      If the feed service is temporarily unavailable,
+      the website will continue showing this song.
+    */
+    const FALLBACK_VIDEO_ID = "VJncR7t_OT4";
+
+
+    /*
+      RSS2JSON API
+
+      This converts the YouTube channel RSS feed
+      into JSON that the browser can read.
+    */
+    const RSS_URL =
+      "https://www.youtube.com/feeds/videos.xml?channel_id=" +
+      CHANNEL_ID;
+
+    const API_URL =
+      "https://api.rss2json.com/v1/api.json?rss_url=" +
+      encodeURIComponent(RSS_URL);
+
+
+    /*
+      Find the newest YouTube upload
+    */
+
+    async function loadLatestYouTubeUpload() {
+
+      const status = document.getElementById("updateStatus");
+
+      try {
+
+        const response = await fetch(API_URL);
+
+        if (!response.ok) {
+          throw new Error("Feed request failed");
+        }
+
+        const data = await response.json();
+
+        if (
+          data.status !== "ok" ||
+          !data.items ||
+          data.items.length === 0
+        ) {
+          throw new Error("No YouTube uploads found");
+        }
+
+
+        /*
+          YouTube RSS normally returns the newest
+          uploads first.
+        */
+
+        const latest = data.items[0];
+
+
+        /*
+          Extract YouTube video ID
+        */
+
+        let videoId = "";
+
+
+        if (latest.guid) {
+
+          const guidMatch =
+            latest.guid.match(/video:([a-zA-Z0-9_-]+)/);
+
+          if (guidMatch) {
+            videoId = guidMatch[1];
+          }
+
+        }
+
+
+        /*
+          Backup extraction from the URL
+        */
+
+        if (!videoId && latest.link) {
+
+          const urlMatch =
+            latest.link.match(/[?&]v=([a-zA-Z0-9_-]+)/);
+
+          if (urlMatch) {
+            videoId = urlMatch[1];
+          }
+
+        }
+
+
+        if (!videoId) {
+          throw new Error("Could not find video ID");
+        }
+
+
+        /*
+          Update player
+        */
+
+        const player =
+          document.getElementById("youtubePlayer");
+
+        const button =
+          document.getElementById("youtubeButton");
+
+        const title =
+          document.getElementById("songTitle");
+
+
+        player.src =
+          "https://www.youtube.com/embed/" +
+          videoId;
+
+
+        button.href =
+          "https://www.youtube.com/watch?v=" +
+          videoId;
+
+
+        title.textContent =
+          latest.title || "xlRVlx — Latest Upload";
+
+
+        status.textContent =
+          "Automatically featuring your latest YouTube upload";
+
+
+      } catch (error) {
+
+        console.log(
+          "Automatic YouTube update failed:",
+          error
+        );
+
+
+        /*
+          Keep the existing song if the feed
+          cannot be reached.
+        */
+
+        status.textContent =
+          "Featured song";
+
+
+      }
+
+    }
+
+
+    /*
+      Start automatic update
+    */
+
+    loadLatestYouTubeUpload();
+
+  </script>
 
 </body>
 </html>
