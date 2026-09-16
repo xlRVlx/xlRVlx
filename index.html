@@ -1089,39 +1089,56 @@
     ========================================== */
 
     function displaySong(
-        index,
-        autoplay = false
+    index,
+    autoplay = false
+) {
+
+    if (
+        !songs.length ||
+        !songs[index]
     ) {
 
-        if (
-            !songs.length ||
-            !songs[index]
-        ) {
-
-            return;
-        }
-
-
-        const song =
-            songs[index];
-
-
-        createYouTubePlayer(
-            song.id,
-            autoplay
-        );
-
-
-        songTitle.textContent =
-            song.title;
-
-
-        youtubeButton.href =
-            song.link;
-
-
-        updateButtons();
+        return;
     }
+
+
+    const song =
+        songs[index];
+
+
+    createYouTubePlayer(
+        song.id,
+        autoplay
+    );
+
+
+    songTitle.textContent =
+        song.title;
+
+
+    youtubeButton.href =
+        song.link;
+
+
+    /*
+     * Update status according to
+     * the currently selected song.
+     */
+
+    if (index === 0) {
+
+        songStatus.textContent =
+            "Latest from xlRVlx";
+
+    } else {
+
+        songStatus.textContent =
+            `Now playing "${song.title}" from xlRVlx`;
+    }
+
+
+    updateButtons();
+}
 
 
     /* ==========================================
@@ -1178,17 +1195,7 @@
                 currentSongIndex,
                 true
             );
-
-
-            /*
-             * Display the actual title
-             * of the song that is now playing.
-             */
-
-            songStatus.textContent =
-                `Now playing "${songs[currentSongIndex].title}" from xlRVlx`;
-
-
+          
         } else {
 
             /*
