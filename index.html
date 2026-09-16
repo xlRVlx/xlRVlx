@@ -373,15 +373,7 @@
 
                 <div class="player-wrapper">
 
-                    <iframe
-                        id="youtubePlayer"
-                        src="https://www.youtube.com/embed/VJncR7t_OT4"
-                        title="xlRVlx Music Player"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin"
-                        allowfullscreen>
-                    </iframe>
+                    <div id="youtubePlayer"></div>
 
                 </div>
 
@@ -472,8 +464,7 @@
                 </div>
 
                 <div class="name">YouTube</div>
-
-                <div class="url-status">Subscribe</div>
+                <div class="url-status">Channel</div>
 
             </a>
 
@@ -499,7 +490,6 @@
                 </div>
 
                 <div class="name">TikTok</div>
-
                 <div class="url-status">Follow</div>
 
             </a>
@@ -526,7 +516,6 @@
                 </div>
 
                 <div class="name">Facebook</div>
-
                 <div class="url-status">Follow</div>
 
             </a>
@@ -573,7 +562,6 @@
                 </div>
 
                 <div class="name">Instagram</div>
-
                 <div class="url-status">Follow</div>
 
             </a>
@@ -600,7 +588,6 @@
                 </div>
 
                 <div class="name">X</div>
-
                 <div class="url-status">Follow</div>
 
             </a>
@@ -611,13 +598,13 @@
 
 
     <!-- =========================
-         STREAM ON
+         LISTEN ON STREAMING
     ========================= -->
 
     <section>
 
         <div class="section-title">
-            Stream on
+            Listen on Streaming
         </div>
 
         <div class="links-grid">
@@ -666,7 +653,6 @@
                 </div>
 
                 <div class="name">Spotify</div>
-
                 <div class="url-status">Listen</div>
 
             </a>
@@ -697,7 +683,6 @@
                 </div>
 
                 <div class="name">Apple Music</div>
-
                 <div class="url-status">Listen</div>
 
             </a>
@@ -724,7 +709,6 @@
                 </div>
 
                 <div class="name">Bandcamp</div>
-
                 <div class="url-status">Listen</div>
 
             </a>
@@ -763,7 +747,6 @@
                 </div>
 
                 <div class="name">TIDAL</div>
-
                 <div class="url-status">Listen</div>
 
             </a>
@@ -821,7 +804,6 @@
                 </div>
 
                 <div class="name">Deezer</div>
-
                 <div class="url-status">Listen</div>
 
             </a>
@@ -864,7 +846,6 @@
                 </div>
 
                 <div class="name">Pinterest</div>
-
                 <div class="url-status">Explore</div>
 
             </a>
@@ -897,7 +878,6 @@
                 </div>
 
                 <div class="name">YouTube Music</div>
-
                 <div class="url-status">Listen</div>
 
             </a>
@@ -930,7 +910,6 @@
                 </div>
 
                 <div class="name">Boomplay</div>
-
                 <div class="url-status">Explore</div>
 
             </a>
@@ -949,6 +928,13 @@
     </footer>
 
 </div>
+
+
+<!-- ==========================================
+     YOUTUBE IFRAME PLAYER API
+========================================== -->
+
+<script src="https://www.youtube.com/iframe_api"></script>
 
 
 <script>
@@ -976,9 +962,12 @@
 
     let currentSongIndex = 0;
 
+    let youtubePlayer = null;
 
-    const player =
-        document.getElementById("youtubePlayer");
+    let youtubeAPIReady = false;
+
+    let pendingVideoId = null;
+
 
     const songTitle =
         document.getElementById("songTitle");
@@ -997,31 +986,139 @@
 
 
     /* ==========================================
-       DISPLAY SONG
+       YOUTUBE API READY
     ========================================== */
 
-    function displaySong(index, autoplay = false) {
+    function onYouTubeIframeAPIReady() {
 
-        if (!songs.length || !songs[index]) {
+        youtubeAPIReady = true;
+
+        if (pendingVideoId) {
+
+            createYouTubePlayer(
+                pendingVideoId,
+                false
+            );
+
+            pendingVideoId = null;
+        }
+    }
+
+
+    /* ==========================================
+       CREATE YOUTUBE PLAYER
+    ========================================== */
+
+    function createYouTubePlayer(videoId, autoplay = false) {
+
+        if (!youtubeAPIReady) {
+
+            pendingVideoId = videoId;
+
             return;
         }
 
-        const song = songs[index];
 
-        let playerURL =
-            `https://www.youtube.com/embed/${song.id}`;
+        if (youtubePlayer) {
 
-        if (autoplay) {
-            playerURL += "?autoplay=1";
+            youtubePlayer.loadVideoById(videoId);
+
+            if (!autoplay) {
+
+                youtubePlayer.pauseVideo();
+            }
+
+            return;
         }
 
-        player.src = playerURL;
+
+        youtubePlayer =
+            new YT.Player(
+                "youtubePlayer",
+                {
+
+                    videoId: videoId,
+
+                    playerVars: {
+
+                        autoplay:
+                            autoplay ? 1 : 0,
+
+                        rel: 0,
+
+                        modestbranding: 1
+
+                    },
+
+                    events: {
+
+                        onStateChange:
+                            onPlayerStateChange
+
+                    }
+
+                }
+            );
+    }
+
+
+    /* ==========================================
+       VIDEO STATE CHANGE
+    ========================================== */
+
+    function onPlayerStateChange(event) {
+
+        /*
+         * YT.PlayerState.ENDED = 0
+         *
+         * When the current song ends,
+         * automatically play the next older song.
+         */
+
+        if (
+            event.data === YT.PlayerState.ENDED
+        ) {
+
+            playNextAutomatically();
+        }
+    }
+
+
+    /* ==========================================
+       DISPLAY SONG
+    ========================================== */
+
+    function displaySong(
+        index,
+        autoplay = false
+    ) {
+
+        if (
+            !songs.length ||
+            !songs[index]
+        ) {
+
+            return;
+        }
+
+
+        const song =
+            songs[index];
+
+
+        createYouTubePlayer(
+            song.id,
+            autoplay
+        );
+
 
         songTitle.textContent =
             song.title;
 
+
         youtubeButton.href =
             song.link;
+
 
         updateButtons();
     }
@@ -1037,17 +1134,21 @@
             currentSongIndex <= 0;
 
         nextButton.disabled =
-            currentSongIndex >= songs.length - 1;
+            currentSongIndex >=
+            songs.length - 1;
     }
 
 
     /* ==========================================
-       NEXT SONG
+       MANUAL NEXT
     ========================================== */
 
     function showNextSong() {
 
-        if (currentSongIndex < songs.length - 1) {
+        if (
+            currentSongIndex <
+            songs.length - 1
+        ) {
 
             currentSongIndex++;
 
@@ -1060,12 +1161,50 @@
 
 
     /* ==========================================
-       PREVIOUS SONG
+       AUTOMATIC NEXT
+    ========================================== */
+
+    function playNextAutomatically() {
+
+        if (
+            currentSongIndex <
+            songs.length - 1
+        ) {
+
+            currentSongIndex++;
+
+            displaySong(
+                currentSongIndex,
+                true
+            );
+
+            songStatus.textContent =
+                "Now playing next from xlRVlx";
+
+        } else {
+
+            /*
+             * Last song reached.
+             * Stop here instead of looping.
+             */
+
+            songStatus.textContent =
+                "End of xlRVlx uploads";
+
+            updateButtons();
+        }
+    }
+
+
+    /* ==========================================
+       MANUAL PREVIOUS
     ========================================== */
 
     function showPreviousSong() {
 
-        if (currentSongIndex > 0) {
+        if (
+            currentSongIndex > 0
+        ) {
 
             currentSongIndex--;
 
@@ -1087,6 +1226,7 @@
 
             const response =
                 await fetch(API_URL);
+
 
             const data =
                 await response.json();
@@ -1120,6 +1260,7 @@
                                     /video:([a-zA-Z0-9_-]+)/
                                 );
 
+
                             if (guidMatch) {
 
                                 videoId =
@@ -1140,6 +1281,7 @@
                                     /[?&]v=([a-zA-Z0-9_-]+)/
                                 );
 
+
                             if (linkMatch) {
 
                                 videoId =
@@ -1159,6 +1301,7 @@
                             link:
                                 item.link ||
                                 `https://www.youtube.com/watch?v=${videoId}`
+
                         };
 
                     })
@@ -1205,18 +1348,23 @@
             );
 
 
-            /* Fallback */
+            /*
+             * Fallback
+             */
 
             songs = [
 
                 {
-                    id: FALLBACK_VIDEO_ID,
+
+                    id:
+                        FALLBACK_VIDEO_ID,
 
                     title:
                         "xlRVlx",
 
                     link:
                         `https://www.youtube.com/watch?v=${FALLBACK_VIDEO_ID}`
+
                 }
 
             ];
