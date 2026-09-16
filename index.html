@@ -116,6 +116,7 @@
         color: #777;
         text-transform: uppercase;
         letter-spacing: 1.5px;
+        line-height: 1.5;
     }
 
     .player-controls {
@@ -464,7 +465,7 @@
                 </div>
 
                 <div class="name">YouTube</div>
-                <div class="url-status">Subscribe</div>
+                <div class="url-status">Channel</div>
 
             </a>
 
@@ -1009,7 +1010,10 @@
        CREATE YOUTUBE PLAYER
     ========================================== */
 
-    function createYouTubePlayer(videoId, autoplay = false) {
+    function createYouTubePlayer(
+        videoId,
+        autoplay = false
+    ) {
 
         if (!youtubeAPIReady) {
 
@@ -1021,7 +1025,9 @@
 
         if (youtubePlayer) {
 
-            youtubePlayer.loadVideoById(videoId);
+            youtubePlayer.loadVideoById(
+                videoId
+            );
 
             if (!autoplay) {
 
@@ -1068,15 +1074,9 @@
 
     function onPlayerStateChange(event) {
 
-        /*
-         * YT.PlayerState.ENDED = 0
-         *
-         * When the current song ends,
-         * automatically play the next older song.
-         */
-
         if (
-            event.data === YT.PlayerState.ENDED
+            event.data ===
+            YT.PlayerState.ENDED
         ) {
 
             playNextAutomatically();
@@ -1173,19 +1173,26 @@
 
             currentSongIndex++;
 
+
             displaySong(
                 currentSongIndex,
                 true
             );
 
+
+            /*
+             * Display the actual title
+             * of the song that is now playing.
+             */
+
             songStatus.textContent =
-                "Now playing next from xlRVlx";
+                `Now playing "${songs[currentSongIndex].title}" from xlRVlx`;
+
 
         } else {
 
             /*
-             * Last song reached.
-             * Stop here instead of looping.
+             * No more older uploads.
              */
 
             songStatus.textContent =
@@ -1324,7 +1331,7 @@
              *
              * index 0 = latest
              * index 1 = older
-             * index 2 = even older
+             * index 2 = older
              */
 
             currentSongIndex = 0;
