@@ -28,7 +28,7 @@ margin: auto;
 }
 
 /* =========================
-HEADER
+   HEADER
 ========================= */
 
 header {
@@ -51,7 +51,7 @@ text-transform: uppercase;
 }
 
 /* =========================
-SECTIONS
+   SECTIONS
 ========================= */
 
 section {
@@ -69,7 +69,7 @@ text-transform: uppercase;
 }
 
 /* =========================
-FEATURED SONG
+   FEATURED SONG
 ========================= */
 
 .featured {
@@ -172,7 +172,7 @@ background: #ddd;
 }
 
 /* =========================
-LINKS GRID
+   LINKS GRID
 ========================= */
 
 .links-grid {
@@ -184,7 +184,7 @@ width: 100%;
 }
 
 /* =========================
-CARD
+   CARD
 ========================= */
 
 .card {
@@ -244,7 +244,7 @@ background: rgba(255, 255, 255, .08);
 }
 
 /* =========================
-ICON
+   ICON
 ========================= */
 
 .icon {
@@ -288,7 +288,7 @@ letter-spacing: 1px;
 }
 
 /* =========================
-FOOTER
+   FOOTER
 ========================= */
 
 footer {
@@ -299,136 +299,84 @@ font-size: 11px;
 letter-spacing: 1.5px;
 }
 
-
 /* =========================
-   xlRVlx BRAND HERO
-   ========================= */
+   xlRVlx PROFILE HEADER
+========================= */
 
 .brand-hero {
-    position: relative;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto 85px;
-}
-
-.brand-banner {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 1942 / 809;
-    overflow: hidden;
-    border-radius: 22px;
-    background: #080808;
-    border: 1px solid #292929;
-    box-shadow: 0 18px 45px rgba(0, 0, 0, .55);
-}
-
-.brand-banner img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.brand-banner::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0) 55%,
-        rgba(0, 0, 0, .18) 78%,
-        rgba(0, 0, 0, .48) 100%
-    );
-    pointer-events: none;
+width: 100%;
+max-width: 1200px;
+margin: 0 auto 55px;
+text-align: center;
 }
 
 .brand-profile {
-    position: absolute;
-    left: 50%;
-    bottom: -68px;
-    transform: translateX(-50%);
-    width: 145px;
-    height: 145px;
-    border-radius: 50%;
-    overflow: hidden;
-    background: #080808;
-    border: 5px solid #111;
-    box-shadow:
-        0 0 0 2px #292929,
-        0 12px 35px rgba(0, 0, 0, .65);
-    z-index: 2;
+width: 155px;
+height: 155px;
+margin: 0 auto 18px;
+border-radius: 50%;
+overflow: hidden;
+background: #080808;
+border: 4px solid #111;
+box-shadow:
+0 0 0 2px #292929,
+0 12px 35px rgba(0, 0, 0, .65);
 }
 
 .brand-profile img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.brand-hero-text {
-    text-align: center;
-    margin-top: 82px;
+display: block;
+width: 100%;
+height: 100%;
+object-fit: cover;
 }
 
 .brand-hero-text h1 {
-    font-size: 48px;
-    font-weight: 900;
-    letter-spacing: 5px;
-    margin-bottom: 8px;
+font-size: 48px;
+font-weight: 900;
+letter-spacing: 5px;
+margin-bottom: 8px;
 }
 
 .brand-hero-text p {
-    color: #888;
-    font-size: 14px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+color: #888;
+font-size: 14px;
+letter-spacing: 2px;
+text-transform: uppercase;
 }
 
-/* The image-based hero replaces the old text-only header. */
 .site-header {
-    display: none;
+display: none;
 }
 
 @media (max-width: 700px) {
-    .brand-hero {
-        margin-bottom: 70px;
-    }
 
-    .brand-profile {
-        width: 120px;
-        height: 120px;
-        bottom: -55px;
-    }
+.brand-profile {
+width: 130px;
+height: 130px;
+}
 
-    .brand-hero-text {
-        margin-top: 68px;
-    }
+.brand-hero-text h1 {
+font-size: 38px;
+}
 
-    .brand-hero-text h1 {
-        font-size: 38px;
-    }
 }
 
 @media (max-width: 430px) {
-    .brand-profile {
-        width: 100px;
-        height: 100px;
-        bottom: -45px;
-    }
 
-    .brand-hero-text {
-        margin-top: 57px;
-    }
+.brand-profile {
+width: 110px;
+height: 110px;
+}
 
-    .brand-hero-text h1 {
-        font-size: 32px;
-        letter-spacing: 4px;
-    }
+.brand-hero-text h1 {
+font-size: 32px;
+letter-spacing: 4px;
+}
+
 }
 
 /* =========================
-RESPONSIVE
+   RESPONSIVE
 ========================= */
 
 @media (max-width: 700px) {
@@ -450,6 +398,7 @@ margin: 0 auto;
 .card {
 width: 100%;
 }
+
 }
 
 @media (max-width: 430px) {
@@ -468,6 +417,7 @@ header h1 {
 font-size: 32px;
 letter-spacing: 4px;
 }
+
 }
 </style>
 </head>
@@ -477,25 +427,10 @@ letter-spacing: 4px;
 <div class="container">
 
 <!-- =========================
-HEADER
+     PROFILE HEADER
 ========================= -->
 
-<header class="site-header">
-<h1>xlRVlx</h1>
-<p>Music &amp; Social Links</p>
-</header>
-
-<!-- =========================
-     xlRVlx BRAND HERO
-     ========================= -->
-
 <div class="brand-hero">
-
-<div class="brand-banner">
-<img
-src="banner.png"
-alt="xlRVlx banner">
-</div>
 
 <div class="brand-profile">
 <img
@@ -512,7 +447,7 @@ alt="xlRVlx profile picture">
 
 
 <!-- =========================
-FEATURED SONG
+     FEATURED SONG
 ========================= -->
 
 <section>
@@ -582,7 +517,7 @@ WATCH ON YOUTUBE
 
 
 <!-- =========================
-FOLLOW & SUBSCRIBE
+     FOLLOW & SUBSCRIBE
 ========================= -->
 
 <section>
@@ -752,13 +687,13 @@ d="M18.244 2.25h3.308l-7.227 8.26L22.83 21.75h-6.618l-5.19-6.793-5.935 6.793H1.7
 
 
 <!-- =========================
-STREAM ON
+     LISTEN ON STREAMING
 ========================= -->
 
 <section>
 
 <div class="section-title">
-Stream On
+Listen On Streaming
 </div>
 
 <div class="links-grid">
@@ -968,7 +903,7 @@ fill="white"/>
 
 
 <!-- =========================
-MORE FROM xlRVlx
+     MORE FROM xlRVlx
 ========================= -->
 
 <section>
@@ -1074,7 +1009,7 @@ d="M8 7h4.8c2.4 0 3.8 1.2 3.8 3 0 1.1-.6 2-1.6 2.5 1.3.4 2.1 1.4 2.1 2.8 0 2-1.5
 
 
 <!-- =========================
-FOOTER
+     FOOTER
 ========================= -->
 
 <footer>
@@ -1085,311 +1020,540 @@ FOOTER
 
 
 <!-- ==========================================
-YOUTUBE IFRAME PLAYER API
+     YOUTUBE IFRAME PLAYER API
 ========================================== -->
-
-<script src="https://www.youtube.com/iframe_api"></script>
-
 
 <script src="https://www.youtube.com/iframe_api"></script>
 
 <script>
 /* ==========================================
    xlRVlx YOUTUBE PLAYER + UPLOAD NAVIGATION
-   ========================================== */
+========================================== */
 
 const CHANNEL_ID = "UCT2xwca6wWHTygBPorpxujQ";
 const FALLBACK_VIDEO_ID = "VJncR7t_OT4";
 
 /*
-   These backup videos keep NEXT/PREVIOUS usable if the
-   external RSS service is temporarily unavailable.
-   New uploads are still loaded automatically when RSS works.
+   Backup videos keep NEXT/PREVIOUS usable if
+   the external RSS service is temporarily unavailable.
 */
 const BACKUP_SONGS = [
-    {
-        id: "VJncR7t_OT4",
-        title: "Latest xlRVlx Upload",
-        link: "https://www.youtube.com/watch?v=VJncR7t_OT4"
-    },
-    {
-        id: "6t2hzisi-UI",
-        title: "Previous xlRVlx Upload",
-        link: "https://www.youtube.com/watch?v=6t2hzisi-UI"
-    }
+{
+id: "VJncR7t_OT4",
+title: "Latest xlRVlx Upload",
+link: "https://www.youtube.com/watch?v=VJncR7t_OT4"
+},
+{
+id: "6t2hzisi-UI",
+title: "Previous xlRVlx Upload",
+link: "https://www.youtube.com/watch?v=6t2hzisi-UI"
+}
 ];
 
 const RSS_URL =
-    "https://www.youtube.com/feeds/videos.xml?channel_id=" + CHANNEL_ID;
+"https://www.youtube.com/feeds/videos.xml?channel_id=" +
+CHANNEL_ID;
 
 const API_URL =
-    "https://api.rss2json.com/v1/api.json?rss_url=" +
-    encodeURIComponent(RSS_URL);
+"https://api.rss2json.com/v1/api.json?rss_url=" +
+encodeURIComponent(RSS_URL);
 
 let songs = [];
 let currentSongIndex = 0;
+
 let youtubePlayer = null;
 let youtubeAPIReady = false;
 let pendingVideoId = null;
 
-const songTitle = document.getElementById("songTitle");
-const songStatus = document.getElementById("songStatus");
-const youtubeButton = document.getElementById("youtubeButton");
-const previousButton = document.getElementById("previousButton");
-const nextButton = document.getElementById("nextButton");
+const songTitle =
+document.getElementById("songTitle");
+
+const songStatus =
+document.getElementById("songStatus");
+
+const youtubeButton =
+document.getElementById("youtubeButton");
+
+const previousButton =
+document.getElementById("previousButton");
+
+const nextButton =
+document.getElementById("nextButton");
+
 
 /* ==========================================
    YOUTUBE API READY
-   ========================================== */
+========================================== */
 
 function onYouTubeIframeAPIReady() {
-    youtubeAPIReady = true;
 
-    if (pendingVideoId) {
-        createYouTubePlayer(pendingVideoId, false);
-        pendingVideoId = null;
-    }
+youtubeAPIReady = true;
+
+if (pendingVideoId) {
+
+createYouTubePlayer(
+pendingVideoId,
+false
+);
+
+pendingVideoId = null;
+
 }
+
+}
+
 
 /* ==========================================
-   CREATE / CONTROL YOUTUBE PLAYER
-   ========================================== */
+   CREATE YOUTUBE PLAYER
+========================================== */
 
-function createYouTubePlayer(videoId, autoplay = false) {
-    if (!videoId) return;
+function createYouTubePlayer(
+videoId,
+autoplay = false
+) {
 
-    if (!youtubeAPIReady) {
-        pendingVideoId = videoId;
-        return;
-    }
-
-    if (youtubePlayer) {
-        youtubePlayer.loadVideoById(videoId);
-
-        if (!autoplay) {
-            youtubePlayer.pauseVideo();
-        }
-
-        return;
-    }
-
-    youtubePlayer = new YT.Player("youtubePlayer", {
-        videoId: videoId,
-        playerVars: {
-            autoplay: autoplay ? 1 : 0,
-            rel: 0,
-            modestbranding: 1
-        },
-        events: {
-            onStateChange: onPlayerStateChange
-        }
-    });
+if (!videoId) {
+return;
 }
+
+if (!youtubeAPIReady) {
+
+pendingVideoId = videoId;
+
+return;
+
+}
+
+if (youtubePlayer) {
+
+youtubePlayer.loadVideoById(videoId);
+
+if (!autoplay) {
+
+youtubePlayer.pauseVideo();
+
+}
+
+return;
+
+}
+
+youtubePlayer =
+new YT.Player(
+"youtubePlayer",
+{
+videoId: videoId,
+
+playerVars: {
+autoplay: autoplay ? 1 : 0,
+rel: 0,
+modestbranding: 1
+},
+
+events: {
+onStateChange:
+onPlayerStateChange
+}
+
+}
+);
+
+}
+
+
+/* ==========================================
+   PLAYER STATE
+========================================== */
 
 function onPlayerStateChange(event) {
-    if (event.data === YT.PlayerState.ENDED) {
-        playNextAutomatically();
-    }
+
+if (
+event.data ===
+YT.PlayerState.ENDED
+) {
+
+playNextAutomatically();
+
 }
+
+}
+
 
 /* ==========================================
    DISPLAY SONG
-   ========================================== */
+========================================== */
 
-function displaySong(index, autoplay = false) {
-    if (!songs.length || !songs[index]) {
-        return;
-    }
+function displaySong(
+index,
+autoplay = false
+) {
 
-    const song = songs[index];
+if (
+!songs.length ||
+!songs[index]
+) {
 
-    createYouTubePlayer(song.id, autoplay);
+return;
 
-    songTitle.textContent = song.title;
-    youtubeButton.href = song.link;
-
-    if (index === 0) {
-        songStatus.textContent = "Latest from xlRVlx";
-    } else {
-        songStatus.textContent =
-            `Now playing "${song.title}" from xlRVlx`;
-    }
-
-    updateButtons();
 }
+
+const song =
+songs[index];
+
+createYouTubePlayer(
+song.id,
+autoplay
+);
+
+songTitle.textContent =
+song.title;
+
+youtubeButton.href =
+song.link;
+
+if (index === 0) {
+
+songStatus.textContent =
+"Latest from xlRVlx";
+
+} else {
+
+songStatus.textContent =
+`Now playing "${song.title}" from xlRVlx`;
+
+}
+
+updateButtons();
+
+}
+
 
 /* ==========================================
-   BUTTON STATE
-   ========================================== */
+   UPDATE BUTTONS
+========================================== */
 
 function updateButtons() {
-    previousButton.disabled = currentSongIndex <= 0;
-    nextButton.disabled = currentSongIndex >= songs.length - 1;
+
+previousButton.disabled =
+currentSongIndex <= 0;
+
+nextButton.disabled =
+currentSongIndex >=
+songs.length - 1;
+
 }
+
 
 /* ==========================================
    MANUAL NEXT
-   ========================================== */
+========================================== */
 
 function showNextSong() {
-    if (currentSongIndex < songs.length - 1) {
-        currentSongIndex++;
-        displaySong(currentSongIndex, true);
-    }
+
+if (
+currentSongIndex <
+songs.length - 1
+) {
+
+currentSongIndex++;
+
+displaySong(
+currentSongIndex,
+true
+);
+
 }
+
+}
+
 
 /* ==========================================
-   AUTOMATIC NEXT WHEN VIDEO ENDS
-   ========================================== */
+   AUTOMATIC NEXT
+========================================== */
 
 function playNextAutomatically() {
-    if (currentSongIndex < songs.length - 1) {
-        currentSongIndex++;
-        displaySong(currentSongIndex, true);
-    } else {
-        songStatus.textContent = "End of xlRVlx uploads";
-        updateButtons();
-    }
+
+if (
+currentSongIndex <
+songs.length - 1
+) {
+
+currentSongIndex++;
+
+displaySong(
+currentSongIndex,
+true
+);
+
+} else {
+
+songStatus.textContent =
+"End of xlRVlx uploads";
+
+updateButtons();
+
 }
+
+}
+
 
 /* ==========================================
    MANUAL PREVIOUS
-   ========================================== */
+========================================== */
 
 function showPreviousSong() {
-    if (currentSongIndex > 0) {
-        currentSongIndex--;
-        displaySong(currentSongIndex, true);
-    }
+
+if (
+currentSongIndex > 0
+) {
+
+currentSongIndex--;
+
+displaySong(
+currentSongIndex,
+true
+);
+
 }
+
+}
+
 
 /* ==========================================
-   HELPERS
-   ========================================== */
+   EXTRACT VIDEO ID
+========================================== */
 
 function extractVideoId(item) {
-    let videoId = "";
 
-    if (item.guid) {
-        const guidMatch = String(item.guid).match(
-            /video:([a-zA-Z0-9_-]+)/
-        );
+let videoId = "";
 
-        if (guidMatch) {
-            videoId = guidMatch[1];
-        }
-    }
+if (item.guid) {
 
-    if (!videoId && item.link) {
-        const linkMatch = String(item.link).match(
-            /[?&]v=([a-zA-Z0-9_-]+)/
-        );
+const guidMatch =
+String(item.guid).match(
+/video:([a-zA-Z0-9_-]+)/
+);
 
-        if (linkMatch) {
-            videoId = linkMatch[1];
-        }
-    }
+if (guidMatch) {
 
-    return videoId;
+videoId =
+guidMatch[1];
+
 }
 
-function mergeBackupSongs(feedSongs) {
-    const result = [...feedSongs];
-    const existingIds = new Set(result.map(song => song.id));
-
-    for (const backup of BACKUP_SONGS) {
-        if (!existingIds.has(backup.id)) {
-            result.push(backup);
-            existingIds.add(backup.id);
-        }
-    }
-
-    return result;
 }
+
+if (
+!videoId &&
+item.link
+) {
+
+const linkMatch =
+String(item.link).match(
+/[?&]v=([a-zA-Z0-9_-]+)/
+);
+
+if (linkMatch) {
+
+videoId =
+linkMatch[1];
+
+}
+
+}
+
+return videoId;
+
+}
+
+
+/* ==========================================
+   MERGE RSS + BACKUP SONGS
+========================================== */
+
+function mergeBackupSongs(
+feedSongs
+) {
+
+const result =
+[...feedSongs];
+
+const existingIds =
+new Set(
+result.map(
+song => song.id
+)
+);
+
+for (
+const backup of BACKUP_SONGS
+) {
+
+if (
+!existingIds.has(
+backup.id
+)
+) {
+
+result.push(
+backup
+);
+
+existingIds.add(
+backup.id
+);
+
+}
+
+}
+
+return result;
+
+}
+
 
 /* ==========================================
    LOAD LATEST YOUTUBE UPLOAD
-   ========================================== */
+========================================== */
 
 async function loadLatestYouTubeUpload() {
-    try {
-        /*
-           Cache-busting helps prevent an old RSS response from
-           being reused by a browser/proxy.
-        */
-        const requestUrl = API_URL + "&t=" + Date.now();
 
-        const response = await fetch(requestUrl, {
-            cache: "no-store"
-        });
+try {
 
-        if (!response.ok) {
-            throw new Error(`RSS request failed: ${response.status}`);
-        }
+/*
+   Cache-busting prevents an old RSS response
+   from being reused by the browser/proxy.
+*/
 
-        const data = await response.json();
+const requestUrl =
+API_URL +
+"&t=" +
+Date.now();
 
-        if (
-            data.status !== "ok" ||
-            !Array.isArray(data.items) ||
-            !data.items.length
-        ) {
-            throw new Error("No YouTube uploads found.");
-        }
-
-        const feedSongs = data.items
-            .map(item => {
-                const videoId = extractVideoId(item);
-
-                return {
-                    id: videoId,
-                    title: item.title || "xlRVlx Upload",
-                    link:
-                        item.link ||
-                        `https://www.youtube.com/watch?v=${videoId}`
-                };
-            })
-            .filter(song => song.id);
-
-        if (!feedSongs.length) {
-            throw new Error("Could not extract video IDs.");
-        }
-
-        /*
-           RSS is normally newest first.
-           Add known backup uploads only when they are not already
-           present, so a temporary RSS problem cannot reduce the
-           navigation list to one song.
-        */
-        songs = mergeBackupSongs(feedSongs);
-        currentSongIndex = 0;
-
-        displaySong(currentSongIndex, false);
-        songStatus.textContent = "Latest from xlRVlx";
-
-    } catch (error) {
-        console.error("YouTube RSS error:", error);
-
-        /*
-           RSS2JSON is an external service. If it is unavailable,
-           use the backup list instead of replacing songs with only
-           one video. This keeps NEXT/PREVIOUS functional.
-        */
-        songs = [...BACKUP_SONGS];
-        currentSongIndex = 0;
-
-        displaySong(currentSongIndex, false);
-        songStatus.textContent = "Latest upload unavailable — backup list loaded";
-    }
+const response =
+await fetch(
+requestUrl,
+{
+cache: "no-store"
 }
+);
+
+if (!response.ok) {
+
+throw new Error(
+`RSS request failed: ${response.status}`
+);
+
+}
+
+const data =
+await response.json();
+
+if (
+data.status !== "ok" ||
+!Array.isArray(data.items) ||
+!data.items.length
+) {
+
+throw new Error(
+"No YouTube uploads found."
+);
+
+}
+
+const feedSongs =
+data.items
+.map(item => {
+
+const videoId =
+extractVideoId(item);
+
+return {
+
+id: videoId,
+
+title:
+item.title ||
+"xlRVlx Upload",
+
+link:
+item.link ||
+`https://www.youtube.com/watch?v=${videoId}`
+
+};
+
+})
+.filter(
+song => song.id
+);
+
+if (!feedSongs.length) {
+
+throw new Error(
+"Could not extract video IDs."
+);
+
+}
+
+/*
+   RSS is normally newest first.
+   Backup videos are added only if they
+   aren't already in the RSS results.
+*/
+
+songs =
+mergeBackupSongs(
+feedSongs
+);
+
+currentSongIndex = 0;
+
+displaySong(
+currentSongIndex,
+false
+);
+
+songStatus.textContent =
+"Latest from xlRVlx";
+
+} catch (error) {
+
+console.error(
+"YouTube RSS error:",
+error
+);
+
+/*
+   If RSS2JSON is temporarily unavailable,
+   use the backup list instead of leaving
+   only one song.
+*/
+
+songs =
+[...BACKUP_SONGS];
+
+currentSongIndex = 0;
+
+displaySong(
+currentSongIndex,
+false
+);
+
+songStatus.textContent =
+"Latest upload unavailable — backup list loaded";
+
+}
+
+}
+
 
 /* ==========================================
    START
-   ========================================== */
+========================================== */
 
 loadLatestYouTubeUpload();
-</script>
 
+</script>
 
 </body>
 </html>
