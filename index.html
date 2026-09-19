@@ -7,340 +7,339 @@
 <title>xlRVlx</title>
 
 <style>
-* {
-box-sizing: border-box;
-margin: 0;
-padding: 0;
-}
-
-body {
-font-family: Arial, Helvetica, sans-serif;
-background:
-radial-gradient(circle at top, #202020 0%, #111 45%, #080808 100%);
-color: white;
-min-height: 100vh;
-padding: 40px 20px;
-}
-
-.container {
-max-width: 1200px;
-margin: auto;
-}
-
-/* =========================
-HEADER
-========================= */
-
-header {
-text-align: center;
-margin-bottom: 45px;
-}
-
-header h1 {
-font-size: 48px;
-font-weight: 900;
-letter-spacing: 5px;
-margin-bottom: 8px;
-}
-
-header p {
-color: #888;
-font-size: 14px;
-letter-spacing: 2px;
-text-transform: uppercase;
-}
-
-/* =========================
-SECTIONS
-========================= */
-
-section {
-margin-bottom: 45px;
-}
-
-.section-title {
-text-align: center;
-font-size: 15px;
-font-weight: 800;
-letter-spacing: 3px;
-color: #aaa;
-margin-bottom: 20px;
-text-transform: uppercase;
-}
-
-/* =========================
-FEATURED SONG
-========================= */
-
-.featured {
-max-width: 850px;
-margin: 0 auto;
-}
-
-.player-card {
-background: linear-gradient(145deg, #1c1c1c, #101010);
-border: 1px solid #292929;
-border-radius: 20px;
-padding: 18px;
-box-shadow: 0 15px 40px rgba(0, 0, 0, .45);
-}
-
-.player-wrapper {
-position: relative;
-width: 100%;
-aspect-ratio: 16 / 9;
-overflow: hidden;
-border-radius: 14px;
-background: #000;
-}
-
-.player-wrapper iframe {
-width: 100%;
-height: 100%;
-border: none;
-}
-
-.song-info {
-text-align: center;
-padding: 18px 10px 5px;
-}
-
-.song-title {
-font-size: 17px;
-font-weight: 800;
-margin-bottom: 7px;
-}
-
-.song-status {
-font-size: 11px;
-color: #777;
-text-transform: uppercase;
-letter-spacing: 1.5px;
-line-height: 1.5;
-}
-
-.player-controls {
-display: flex;
-justify-content: center;
-gap: 12px;
-margin-top: 18px;
-}
-
-.control-btn {
-border: 1px solid #333;
-background: #181818;
-color: white;
-border-radius: 10px;
-padding: 10px 20px;
-font-size: 12px;
-font-weight: 700;
-letter-spacing: 1px;
-cursor: pointer;
-transition: .25s ease;
-}
-
-.control-btn:hover:not(:disabled) {
-background: #292929;
-border-color: #555;
-transform: translateY(-2px);
-}
-
-.control-btn:disabled {
-opacity: .3;
-cursor: not-allowed;
-}
-
-.youtube-button {
-display: inline-flex;
-align-items: center;
-justify-content: center;
-margin-top: 15px;
-padding: 10px 18px;
-border-radius: 9px;
-background: #fff;
-color: #111;
-text-decoration: none;
-font-size: 11px;
-font-weight: 800;
-letter-spacing: 1px;
-transition: .25s ease;
-}
-
-.youtube-button:hover {
-transform: translateY(-2px);
-background: #ddd;
-}
-
-/* =========================
-LINKS GRID
-========================= */
-
-.links-grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, 220px);
-justify-content: center;
-gap: 18px;
-width: 100%;
-}
-
-/* =========================
-CARD
-========================= */
-
-.card {
-position: relative;
-width: 220px;
-aspect-ratio: 1 / 1;
-
-background: linear-gradient(145deg, #1c1c1c, #101010);
-border: 1px solid #292929;
-border-radius: 18px;
-
-text-decoration: none;
-color: white;
-
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-
-gap: 15px;
-overflow: hidden;
-
-transition:
-transform .25s ease,
-border-color .25s ease,
-box-shadow .25s ease,
-background .25s ease;
-}
-
-.card::before {
-content: "";
-position: absolute;
-
-width: 120px;
-height: 120px;
-
-background: rgba(255, 255, 255, .04);
-border-radius: 50%;
-
-filter: blur(25px);
-
-transition: .3s;
-}
-
-.card:hover {
-transform: translateY(-8px);
-border-color: #555;
-
-background: linear-gradient(145deg, #252525, #111);
-
-box-shadow: 0 15px 40px rgba(0, 0, 0, .6);
-}
-
-.card:hover::before {
-transform: scale(1.5);
-background: rgba(255, 255, 255, .08);
-}
-
-/* =========================
-ICON
-========================= */
-
-.icon {
-width: 58px;
-height: 58px;
-
-position: relative;
-z-index: 2;
-
-display: flex;
-justify-content: center;
-align-items: center;
-}
-
-.icon svg {
-display: block;
-width: 58px;
-height: 58px;
-}
-
-.name {
-position: relative;
-z-index: 2;
-
-font-size: 14px;
-font-weight: 800;
-letter-spacing: 1.5px;
-
-text-align: center;
-}
-
-.url-status {
-position: relative;
-z-index: 2;
-
-font-size: 10px;
-color: #666;
-
-text-transform: uppercase;
-letter-spacing: 1px;
-}
-
-/* =========================
-FOOTER
-========================= */
-
-footer {
-text-align: center;
-margin-top: 55px;
-color: #555;
-font-size: 11px;
-letter-spacing: 1.5px;
-}
-
-/* =========================
-RESPONSIVE
-========================= */
-
-@media (max-width: 700px) {
-
-body {
-padding: 30px 15px;
-}
-
-header h1 {
-font-size: 38px;
-}
-
-.links-grid {
-grid-template-columns: repeat(2, 1fr);
-max-width: 470px;
-margin: 0 auto;
-}
-
-.card {
-width: 100%;
-}
-}
-
-@media (max-width: 430px) {
-
-.links-grid {
-grid-template-columns: 1fr;
-max-width: 220px;
-margin: 0 auto;
-}
-
-.card {
-width: 220px;
-}
-
-header h1 {
-font-size: 32px;
-letter-spacing: 4px;
-}
-}
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background:
+            radial-gradient(circle at top, #202020 0%, #111 45%, #080808 100%);
+        color: white;
+        min-height: 100vh;
+        padding: 40px 20px;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+        text-align: center;
+        margin-bottom: 45px;
+    }
+
+    header h1 {
+        font-size: 48px;
+        font-weight: 900;
+        letter-spacing: 5px;
+        margin-bottom: 8px;
+    }
+
+    header p {
+        color: #888;
+        font-size: 14px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+
+    /* =========================
+       SECTIONS
+    ========================= */
+
+    section {
+        margin-bottom: 45px;
+    }
+
+    .section-title {
+        text-align: center;
+        font-size: 15px;
+        font-weight: 800;
+        letter-spacing: 3px;
+        color: #aaa;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+    }
+
+    /* =========================
+       FEATURED SONG
+    ========================= */
+
+    .featured {
+        max-width: 850px;
+        margin: 0 auto;
+    }
+
+    .player-card {
+        background: linear-gradient(145deg, #1c1c1c, #101010);
+        border: 1px solid #292929;
+        border-radius: 20px;
+        padding: 18px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, .45);
+    }
+
+    .player-wrapper {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+        border-radius: 14px;
+        background: #000;
+    }
+
+    .player-wrapper iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+
+    .song-info {
+        text-align: center;
+        padding: 18px 10px 5px;
+    }
+
+    .song-title {
+        font-size: 17px;
+        font-weight: 800;
+        margin-bottom: 7px;
+    }
+
+    .song-status {
+        font-size: 11px;
+        color: #777;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+    }
+
+    .player-controls {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 18px;
+    }
+
+    .control-btn {
+        border: 1px solid #333;
+        background: #181818;
+        color: white;
+        border-radius: 10px;
+        padding: 10px 20px;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        cursor: pointer;
+        transition: .25s ease;
+    }
+
+    .control-btn:hover:not(:disabled) {
+        background: #292929;
+        border-color: #555;
+        transform: translateY(-2px);
+    }
+
+    .control-btn:disabled {
+        opacity: .3;
+        cursor: not-allowed;
+    }
+
+    .youtube-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 15px;
+        padding: 10px 18px;
+        border-radius: 9px;
+        background: #fff;
+        color: #111;
+        text-decoration: none;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 1px;
+        transition: .25s ease;
+    }
+
+    .youtube-button:hover {
+        transform: translateY(-2px);
+        background: #ddd;
+    }
+
+    /* =========================
+       LINKS GRID
+    ========================= */
+
+    .links-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 220px);
+        justify-content: center;
+        gap: 18px;
+        width: 100%;
+    }
+
+    /* =========================
+       CARD
+    ========================= */
+
+    .card {
+        position: relative;
+        width: 220px;
+        aspect-ratio: 1 / 1;
+
+        background: linear-gradient(145deg, #1c1c1c, #101010);
+        border: 1px solid #292929;
+        border-radius: 18px;
+
+        text-decoration: none;
+        color: white;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        gap: 15px;
+        overflow: hidden;
+
+        transition:
+            transform .25s ease,
+            border-color .25s ease,
+            box-shadow .25s ease,
+            background .25s ease;
+    }
+
+    .card::before {
+        content: "";
+        position: absolute;
+
+        width: 120px;
+        height: 120px;
+
+        background: rgba(255, 255, 255, .04);
+        border-radius: 50%;
+
+        filter: blur(25px);
+
+        transition: .3s;
+    }
+
+    .card:hover {
+        transform: translateY(-8px);
+        border-color: #555;
+
+        background: linear-gradient(145deg, #252525, #111);
+
+        box-shadow: 0 15px 40px rgba(0, 0, 0, .6);
+    }
+
+    .card:hover::before {
+        transform: scale(1.5);
+        background: rgba(255, 255, 255, .08);
+    }
+
+    /* =========================
+       ICON
+    ========================= */
+
+    .icon {
+        width: 58px;
+        height: 58px;
+
+        position: relative;
+        z-index: 2;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .icon svg {
+        display: block;
+        width: 58px;
+        height: 58px;
+    }
+
+    .name {
+        position: relative;
+        z-index: 2;
+
+        font-size: 14px;
+        font-weight: 800;
+        letter-spacing: 1.5px;
+
+        text-align: center;
+    }
+
+    .url-status {
+        position: relative;
+        z-index: 2;
+
+        font-size: 10px;
+        color: #666;
+
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+        text-align: center;
+        margin-top: 55px;
+        color: #555;
+        font-size: 11px;
+        letter-spacing: 1.5px;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 700px) {
+
+        body {
+            padding: 30px 15px;
+        }
+
+        header h1 {
+            font-size: 38px;
+        }
+
+        .links-grid {
+            grid-template-columns: repeat(2, 1fr);
+            max-width: 470px;
+            margin: 0 auto;
+        }
+
+        .card {
+            width: 100%;
+        }
+    }
+
+    @media (max-width: 430px) {
+
+        .links-grid {
+            grid-template-columns: 1fr;
+            max-width: 220px;
+            margin: 0 auto;
+        }
+
+        .card {
+            width: 220px;
+        }
+
+        header h1 {
+            font-size: 32px;
+            letter-spacing: 4px;
+        }
+    }
 </style>
 </head>
 
@@ -348,895 +347,1051 @@ letter-spacing: 4px;
 
 <div class="container">
 
-<!-- =========================
-HEADER
-========================= -->
+    <!-- =========================
+         HEADER
+    ========================= -->
 
-<header>
-<h1>xlRVlx</h1>
-<p>Music &amp; Social Links</p>
-</header>
+    <header>
+        <h1>xlRVlx</h1>
+        <p>Music &amp; Social Links</p>
+    </header>
 
 
-<!-- =========================
-FEATURED SONG
-========================= -->
+    <!-- =========================
+         FEATURED SONG
+    ========================= -->
 
-<section>
+    <section>
 
-<div class="section-title">
-Featured Song
-</div>
+        <div class="section-title">
+            Featured Song
+        </div>
 
-<div class="featured">
+        <div class="featured">
 
-<div class="player-card">
+            <div class="player-card">
 
-<div class="player-wrapper">
+                <div class="player-wrapper">
 
-<div id="youtubePlayer"></div>
+                    <div id="youtubePlayer"></div>
 
-</div>
+                </div>
 
-<div class="song-info">
+                <div class="song-info">
 
-<div
-class="song-title"
-id="songTitle">
-Loading latest upload...
-</div>
+                    <div
+                        class="song-title"
+                        id="songTitle">
+                        Loading latest upload...
+                    </div>
 
-<div
-class="song-status"
-id="songStatus">
-Loading...
-</div>
+                    <div
+                        class="song-status"
+                        id="songStatus">
+                        Loading...
+                    </div>
 
-<div class="player-controls">
+                    <div class="player-controls">
 
-<button
-class="control-btn"
-id="previousButton"
-onclick="showPreviousSong()">
-PREVIOUS
-</button>
+                        <button
+                            class="control-btn"
+                            id="previousButton"
+                            onclick="showPreviousSong()">
+                            PREVIOUS
+                        </button>
 
-<button
-class="control-btn"
-id="nextButton"
-onclick="showNextSong()">
-NEXT
-</button>
+                        <button
+                            class="control-btn"
+                            id="nextButton"
+                            onclick="showNextSong()">
+                            NEXT
+                        </button>
 
-</div>
+                    </div>
 
-<a
-id="youtubeButton"
-class="youtube-button"
-href="https://www.youtube.com/watch?v=VJncR7t_OT4"
-target="_blank"
-rel="noopener">
-WATCH ON YOUTUBE
-</a>
+                    <a
+                        id="youtubeButton"
+                        class="youtube-button"
+                        href="https://www.youtube.com/watch?v=VJncR7t_OT4"
+                        target="_blank"
+                        rel="noopener">
+                        WATCH ON YOUTUBE
+                    </a>
 
-</div>
+                </div>
 
-</div>
+            </div>
 
-</div>
+        </div>
 
-</section>
+    </section>
 
 
-<!-- =========================
-FOLLOW & SUBSCRIBE
-========================= -->
+    <!-- =========================
+         FOLLOW & SUBSCRIBE
+    ========================= -->
 
-<section>
+    <section>
 
-<div class="section-title">
-Follow &amp; Subscribe
-</div>
+        <div class="section-title">
+            Follow &amp; Subscribe
+        </div>
 
-<div class="links-grid">
+        <div class="links-grid">
 
-<!-- YouTube -->
+            <!-- YouTube -->
 
-<a
-class="card"
-href="https://www.youtube.com/channel/UCT2xwca6wWHTygBPorpxujQ"
-target="_blank"
-rel="noopener">
+            <a
+                class="card"
+                href="https://www.youtube.com/channel/UCT2xwca6wWHTygBPorpxujQ"
+                target="_blank"
+                rel="noopener">
 
-<div class="icon">
+                <div class="icon">
 
-<svg viewBox="0 0 24 24">
+                    <svg viewBox="0 0 24 24">
 
-<path
-fill="white"
-d="M21 7.2c0-1.77-1.43-3.2-3.2-3.2H6.2C4.43 4 3 5.43 3 7.2v9.6C3 18.57 4.43 20 6.2 20h11.6c1.77 0 3.2-1.43 3.2-3.2V7.2z"/>
+                        <path
+                            fill="white"
+                            d="M21 7.2c0-1.77-1.43-3.2-3.2-3.2H6.2C4.43 4 3 5.43 3 7.2v9.6C3 18.57 4.43 20 6.2 20h11.6c1.77 0 3.2-1.43 3.2-3.2V7.2z"/>
 
-<path
-fill="#111"
-d="M10 8l6 4-6 4V8z"/>
+                        <path
+                            fill="#111"
+                            d="M10 8l6 4-6 4V8z"/>
 
-</svg>
+                    </svg>
 
-</div>
+                </div>
 
-<div class="name">YouTube</div>
-<div class="url-status">Subscribe</div>
+                <div class="name">YouTube</div>
+                <div class="url-status">Subscribe</div>
 
-</a>
+            </a>
 
 
-<!-- TikTok -->
+            <!-- TikTok -->
 
-<a
-class="card"
-href="https://www.tiktok.com/@xlrvlx.l31"
-target="_blank"
-rel="noopener">
+            <a
+                class="card"
+                href="https://www.tiktok.com/@xlrvlx.l31"
+                target="_blank"
+                rel="noopener">
 
-<div class="icon">
+                <div class="icon">
 
-<svg viewBox="0 0 24 24">
+                    <svg viewBox="0 0 24 24">
 
-<path
-fill="white"
-d="M15 3h3c.3 2 1.5 3.5 3.5 4v3c-1.5 0-2.8-.4-4-1.1v6.3c0 4-2.7 6.8-6.5 6.8S5 18.7 5 15.2c0-3.3 2.5-6.1 5.8-6.1.4 0 .8 0 1.2.1v3.3c-.4-.1-.8-.2-1.2-.2-1.5 0-2.7 1.2-2.7 2.8s1.2 2.8 2.7 2.8c1.8 0 2.7-1.2 2.7-3.1V3z"/>
+                        <path
+                            fill="white"
+                            d="M15 3h3c.3 2 1.5 3.5 3.5 4v3c-1.5 0-2.8-.4-4-1.1v6.3c0 4-2.7 6.8-6.5 6.8S5 18.7 5 15.2c0-3.3 2.5-6.1 5.8-6.1.4 0 .8 0 1.2.1v3.3c-.4-.1-.8-.2-1.2-.2-1.5 0-2.7 1.2-2.7 2.8s1.2 2.8 2.7 2.8c1.8 0 2.7-1.2 2.7-3.1V3z"/>
 
-</svg>
+                    </svg>
 
-</div>
+                </div>
 
-<div class="name">TikTok</div>
-<div class="url-status">Follow</div>
+                <div class="name">TikTok</div>
+                <div class="url-status">Follow</div>
 
-</a>
+            </a>
 
 
-<!-- Facebook -->
+            <!-- Facebook -->
 
-<a
-class="card"
-href="https://www.facebook.com/xlRVlx.L31"
-target="_blank"
-rel="noopener">
+            <a
+                class="card"
+                href="https://www.facebook.com/xlRVlx.L31"
+                target="_blank"
+                rel="noopener">
 
-<div class="icon">
+                <div class="icon">
 
-<svg viewBox="0 0 24 24">
+                    <svg viewBox="0 0 24 24">
 
-<path
-fill="white"
-d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm2.5 10H13v6h-3v-6H8v-2h2V8.8C10 6.9 11 6 12.8 6c.8 0 1.3.1 1.7.2v2.4h-1.3c-.9 0-1.2.4-1.2 1.1V10h2.4l-.4 2z"/>
+                        <path
+                            fill="white"
+                            d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm2.5 10H13v6h-3v-6H8v-2h2V8.8C10 6.9 11 6 12.8 6c.8 0 1.3.1 1.7.2v2.4h-1.3c-.9 0-1.2.4-1.2 1.1V10h2.4l-.4 2z"/>
 
-</svg>
+                    </svg>
 
-</div>
+                </div>
 
-<div class="name">Facebook</div>
-<div class="url-status">Follow</div>
+                <div class="name">Facebook</div>
+                <div class="url-status">Follow</div>
 
-</a>
+            </a>
 
 
-<!-- Instagram -->
+            <!-- Instagram -->
 
-<a
-class="card"
-href="https://www.instagram.com/xlrvlx/"
-target="_blank"
-rel="noopener">
+            <a
+                class="card"
+                href="https://www.instagram.com/xlrvlx/"
+                target="_blank"
+                rel="noopener">
 
-<div class="icon">
+                <div class="icon">
 
-<svg viewBox="0 0 24 24">
+                    <svg viewBox="0 0 24 24">
 
-<rect
-x="3"
-y="3"
-width="18"
-height="18"
-rx="5"
-fill="none"
-stroke="white"
-stroke-width="2"/>
+                        <rect
+                            x="3"
+                            y="3"
+                            width="18"
+                            height="18"
+                            rx="5"
+                            fill="none"
+                            stroke="white"
+                            stroke-width="2"/>
 
-<circle
-cx="12"
-cy="12"
-r="4"
-fill="none"
-stroke="white"
-stroke-width="2"/>
+                        <circle
+                            cx="12"
+                            cy="12"
+                            r="4"
+                            fill="none"
+                            stroke="white"
+                            stroke-width="2"/>
 
-<circle
-cx="17.3"
-cy="6.7"
-r="1.2"
-fill="white"/>
+                        <circle
+                            cx="17.3"
+                            cy="6.7"
+                            r="1.2"
+                            fill="white"/>
 
-</svg>
+                    </svg>
 
-</div>
+                </div>
 
-<div class="name">Instagram</div>
-<div class="url-status">Follow</div>
+                <div class="name">Instagram</div>
+                <div class="url-status">Follow</div>
 
-</a>
+            </a>
 
 
-<!-- X -->
+            <!-- X -->
 
-<a
-class="card"
-href="https://x.com/xlRVlx1231"
-target="_blank"
-rel="noopener">
+            <a
+                class="card"
+                href="https://x.com/xlRVlx1231"
+                target="_blank"
+                rel="noopener">
 
-<div class="icon">
+                <div class="icon">
 
-<svg viewBox="0 0 24 24">
+                    <svg viewBox="0 0 24 24">
 
-<path
-fill="white"
-d="M18.244 2.25h3.308l-7.227 8.26L22.83 21.75h-6.618l-5.19-6.793-5.935 6.793H1.777l7.73-8.835L1.17 2.25H7.956l4.69 6.204 5.598-6.204zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/>
+                        <path
+                            fill="white"
+                            d="M18.244 2.25h3.308l-7.227 8.26L22.83 21.75h-6.618l-5.19-6.793-5.935 6.793H1.777l7.73-8.835L1.17 2.25H7.956l4.69 6.204 5.598-6.204zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/>
 
-</svg>
+                    </svg>
 
-</div>
+                </div>
 
-<div class="name">X</div>
-<div class="url-status">Follow</div>
+                <div class="name">X</div>
+                <div class="url-status">Follow</div>
 
-</a>
+            </a>
 
-</div>
+        </div>
 
-</section>
+    </section>
 
 
-<!-- =========================
-STREAM ON
-========================= -->
+    <!-- =========================
+         STREAM ON
+    ========================= -->
 
-<section>
+    <section>
 
-<div class="section-title">
-Stream On
-</div>
+        <div class="section-title">
+            Stream On
+        </div>
 
-<div class="links-grid">
+        <div class="links-grid">
 
-<!-- Spotify -->
+            <!-- Spotify -->
 
-<a
-class="card"
-href="https://open.spotify.com/artist/5k2lG14wZobFCRtap5tnZw"
-target="_blank"
-rel="noopener">
+            <a
+                class="card"
+                href="https://open.spotify.com/artist/5k2lG14wZobFCRtap5tnZw"
+                target="_blank"
+                rel="noopener">
 
-<div class="icon">
+                <div class="icon">
 
-<svg viewBox="0 0 24 24">
+                    <svg viewBox="0 0 24 24">
 
-<circle
-cx="12"
-cy="12"
-r="10"
-fill="white"/>
+                        <circle
+                            cx="12"
+                            cy="12"
+                            r="10"
+                            fill="white"/>
 
-<path
-d="M7 10.2c3.3-1 6.9-.8 10 .5"
-fill="none"
-stroke="#111"
-stroke-width="1.6"
-stroke-linecap="round"/>
+                        <path
+                            d="M7 10.2c3.3-1 6.9-.8 10 .5"
+                            fill="none"
+                            stroke="#111"
+                            stroke-width="1.6"
+                            stroke-linecap="round"/>
 
-<path
-d="M7.7 13c2.8-.7 5.7-.5 8.3.6"
-fill="none"
-stroke="#111"
-stroke-width="1.6"
-stroke-linecap="round"/>
+                        <path
+                            d="M7.7 13c2.8-.7 5.7-.5 8.3.6"
+                            fill="none"
+                            stroke="#111"
+                            stroke-width="1.6"
+                            stroke-linecap="round"/>
 
-<path
-d="M8.5 15.7c2.2-.5 4.3-.3 6.4.5"
-fill="none"
-stroke="#111"
-stroke-width="1.5"
-stroke-linecap="round"/>
+                        <path
+                            d="M8.5 15.7c2.2-.5 4.3-.3 6.4.5"
+                            fill="none"
+                            stroke="#111"
+                            stroke-width="1.5"
+                            stroke-linecap="round"/>
 
-</svg>
+                    </svg>
 
-</div>
+                </div>
 
-<div class="name">Spotify</div>
-<div class="url-status">Listen</div>
+                <div class="name">Spotify</div>
+                <div class="url-status">Listen</div>
 
-</a>
+            </a>
 
 
-<!-- Apple Music -->
+            <!-- Apple Music -->
 
-<a
-class="card"
-href="https://music.apple.com/us/artist/xlrvlx/6799604888"
-target="_blank"
-rel="noopener">
+            <a
+                class="card"
+                href="https://music.apple.com/us/artist/xlrvlx/6799604888"
+                target="_blank"
+                rel="noopener">
 
-<div class="icon">
+                <div class="icon">
 
-<svg viewBox="0 0 24 24">
+                    <svg viewBox="0 0 24 24">
 
-<path
-fill="white"
-d="M16.2 3.5c-1 .1-2.2.8-2.8 1.6-.6.7-1.1 1.8-.9 2.8 1.1.1 2.2-.6 2.8-1.4.6-.8 1-1.9.9-3z"/>
+                        <path
+                            fill="white"
+                            d="M16.2 3.5c-1 .1-2.2.8-2.8 1.6-.6.7-1.1 1.8-.9 2.8 1.1.1 2.2-.6 2.8-1.4.6-.8 1-1.9.9-3z"/>
 
-<path
-fill="white"
-d="M18.8 12.7c0-2.4 2-3.6 2.1-3.7-1.1-1.6-2.8-1.8-3.4-1.9-1.4-.1-2.7.8-3.4.8-.7 0-1.8-.8-2.9-.8-1.5 0-2.9.9-3.7 2.2-1.6 2.7-.4 6.7 1.1 8.9.8 1.1 1.6 2.3 2.8 2.2 1.1 0 1.6-.7 3-.7 1.4 0 1.8.7 3 .7 1.2 0 2-1.1 2.7-2.2.9-1.3 1.3-2.6 1.3-2.7-.1 0-2.6-1-2.6-3.8z"/>
+                        <path
+                            fill="white"
+                            d="M18.8 12.7c0-2.4 2-3.6 2.1-3.7-1.1-1.6-2.8-1.8-3.4-1.9-1.4-.1-2.7.8-3.4.8-.7 0-1.8-.8-2.9-.8-1.5 0-2.9.9-3.7 2.2-1.6 2.7-.4 6.7 1.1 8.9.8 1.1 1.6 2.3 2.8 2.2 1.1 0 1.6-.7 3-.7 1.4 0 1.8.7 3 .7 1.2 0 2-1.1 2.7-2.2.9-1.3 1.3-2.6 1.3-2.7-.1 0-2.6-1-2.6-3.8z"/>
 
-</svg>
+                    </svg>
 
-</div>
+                </div>
 
-<div class="name">Apple Music</div>
-<div class="url-status">Listen</div>
+                <div class="name">Apple Music</div>
+                <div class="url-status">Listen</div>
 
-</a>
+            </a>
 
 
-<!-- Bandcamp -->
+            <!-- Bandcamp -->
 
-<a
-class="card"
-href="https://xlrvlx31.bandcamp.com/?ui_context=usernav"
-target="_blank"
-rel="noopener">
+            <a
+                class="card"
+                href="https://xlrvlx31.bandcamp.com/?ui_context=usernav"
+                target="_blank"
+                rel="noopener">
 
-<div class="icon">
+                <div class="icon">
 
-<svg viewBox="0 0 24 24">
+                    <svg viewBox="0 0 24 24">
 
-<path
-fill="white"
-d="M2 18h14l6-12H8L2 18z"/>
+                        <path
+                            fill="white"
+                            d="M2 18h14l6-12H8L2 18z"/>
 
-</svg>
+                    </svg>
 
-</div>
+                </div>
 
-<div class="name">Bandcamp</div>
-<div class="url-status">Listen</div>
+                <div class="name">Bandcamp</div>
+                <div class="url-status">Listen</div>
 
-</a>
+            </a>
 
 
-<!-- TIDAL -->
+            <!-- TIDAL -->
 
-<a
-class="card"
-href="https://tidal.com/artist/84130648"
-target="_blank"
-rel="noopener">
+            <a
+                class="card"
+                href="https://tidal.com/artist/84130648"
+                target="_blank"
+                rel="noopener">
 
-<div class="icon">
+                <div class="icon">
 
-<svg viewBox="0 0 24 24">
+                    <svg viewBox="0 0 24 24">
 
-<path
-fill="white"
-d="M12 7.2 9.1 10l2.9 2.8L14.9 10 12 7.2z"/>
+                        <path
+                            fill="white"
+                            d="M12 7.2 9.1 10l2.9 2.8L14.9 10 12 7.2z"/>
 
-<path
-fill="white"
-d="M6.1 7.2 3.2 10l2.9 2.8L9 10 6.1 7.2z"/>
+                        <path
+                            fill="white"
+                            d="M6.1 7.2 3.2 10l2.9 2.8L9 10 6.1 7.2z"/>
 
-<path
-fill="white"
-d="M17.9 7.2 15 10l2.9 2.8 2.9-2.8-2.9-2.8z"/>
+                        <path
+                            fill="white"
+                            d="M17.9 7.2 15 10l2.9 2.8 2.9-2.8-2.9-2.8z"/>
 
-<path
-fill="white"
-d="M12 13.1 9.1 15.9l2.9 2.8 2.9-2.8-2.9-2.8z"/>
+                        <path
+                            fill="white"
+                            d="M12 13.1 9.1 15.9l2.9 2.8 2.9-2.8-2.9-2.8z"/>
 
-</svg>
+                    </svg>
 
-</div>
+                </div>
 
-<div class="name">TIDAL</div>
-<div class="url-status">Listen</div>
+                <div class="name">TIDAL</div>
+                <div class="url-status">Listen</div>
 
-</a>
+            </a>
 
 
-<!-- Deezer -->
+            <!-- Deezer -->
 
-<a
-class="card"
-href="https://www.deezer.com/en/artist/409149782"
-target="_blank"
-rel="noopener">
+            <a
+                class="card"
+                href="https://www.deezer.com/en/artist/409149782"
+                target="_blank"
+                rel="noopener">
 
-<div class="icon">
+                <div class="icon">
 
-<svg viewBox="0 0 24 24">
+                    <svg viewBox="0 0 24 24">
 
-<rect
-x="3"
-y="15"
-width="3"
-height="4"
-fill="white"/>
+                        <rect
+                            x="3"
+                            y="15"
+                            width="3"
+                            height="4"
+                            fill="white"/>
 
-<rect
-x="7"
-y="13"
-width="3"
-height="6"
-fill="white"/>
+                        <rect
+                            x="7"
+                            y="13"
+                            width="3"
+                            height="6"
+                            fill="white"/>
 
-<rect
-x="11"
-y="11"
-width="3"
-height="8"
-fill="white"/>
+                        <rect
+                            x="11"
+                            y="11"
+                            width="3"
+                            height="8"
+                            fill="white"/>
 
-<rect
-x="15"
-y="9"
-width="3"
-height="10"
-fill="white"/>
+                        <rect
+                            x="15"
+                            y="9"
+                            width="3"
+                            height="10"
+                            fill="white"/>
 
-<rect
-x="19"
-y="7"
-width="2"
-height="12"
-fill="white"/>
+                        <rect
+                            x="19"
+                            y="7"
+                            width="2"
+                            height="12"
+                            fill="white"/>
 
-</svg>
+                    </svg>
 
-</div>
+                </div>
 
-<div class="name">Deezer</div>
-<div class="url-status">Listen</div>
+                <div class="name">Deezer</div>
+                <div class="url-status">Listen</div>
 
-</a>
+            </a>
 
-</div>
+        </div>
 
-</section>
+    </section>
 
 
-<!-- =========================
-MORE FROM xlRVlx
-========================= -->
+    <!-- =========================
+         MORE FROM xlRVlx
+    ========================= -->
 
-<section>
+    <section>
 
-<div class="section-title">
-More from xlRVlx
-</div>
+        <div class="section-title">
+            More from xlRVlx
+        </div>
 
-<div class="links-grid">
+        <div class="links-grid">
 
-<!-- Pinterest -->
+            <!-- Pinterest -->
 
-<a
-class="card"
-href="https://ph.pinterest.com/dummz421/"
-target="_blank"
-rel="noopener">
+            <a
+                class="card"
+                href="https://ph.pinterest.com/dummz421/"
+                target="_blank"
+                rel="noopener">
 
-<div class="icon">
+                <div class="icon">
 
-<svg viewBox="0 0 24 24">
+                    <svg viewBox="0 0 24 24">
 
-<path
-fill="white"
-d="M12 2a10 10 0 0 0-3.6 19.3c-.1-1.6 0-3.5.4-5.1l1.2-5.1s-.3-.7-.3-1.7c0-1.6.9-2.8 2.1-2.8 1 0 1.5.8 1.5 1.7 0 1-.6 2.4-.9 3.7-.3 1.1.6 2 1.7 2 2.1 0 3.7-2.2 3.7-5.3 0-2.8-2-4.8-4.9-4.8-3.4 0-5.4 2.5-5.4 5.1 0 1 .4 2.1.9 2.7.1.1.1.2.1.4l-.3 1.1c-.1.4-.3.5-.7.3-1.5-.7-2.4-2.8-2.4-4.5 0-3.7 2.7-7.1 7.8-7.1 4.1 0 7.2 2.9 7.2 6.7 0 4-2.5 7.2-6 7.2-1.2 0-2.3-.6-2.7-1.3l-.8 3.1c-.3 1.2-1.1 2.7-1.6 3.6A10 10 0 1 0 12 2z"/>
+                        <path
+                            fill="white"
+                            d="M12 2a10 10 0 0 0-3.6 19.3c-.1-1.6 0-3.5.4-5.1l1.2-5.1s-.3-.7-.3-1.7c0-1.6.9-2.8 2.1-2.8 1 0 1.5.8 1.5 1.7 0 1-.6 2.4-.9 3.7-.3 1.1.6 2 1.7 2 2.1 0 3.7-2.2 3.7-5.3 0-2.8-2-4.8-4.9-4.8-3.4 0-5.4 2.5-5.4 5.1 0 1 .4 2.1.9 2.7.1.1.1.2.1.4l-.3 1.1c-.1.4-.3.5-.7.3-1.5-.7-2.4-2.8-2.4-4.5 0-3.7 2.7-7.1 7.8-7.1 4.1 0 7.2 2.9 7.2 6.7 0 4-2.5 7.2-6 7.2-1.2 0-2.3-.6-2.7-1.3l-.8 3.1c-.3 1.2-1.1 2.7-1.6 3.6A10 10 0 1 0 12 2z"/>
 
-</svg>
+                    </svg>
 
-</div>
+                </div>
 
-<div class="name">Pinterest</div>
-<div class="url-status">Explore</div>
+                <div class="name">Pinterest</div>
+                <div class="url-status">Explore</div>
 
-</a>
+            </a>
 
 
-<!-- YouTube Music -->
+            <!-- YouTube Music -->
 
-<a
-class="card"
-href="https://music.youtube.com/channel/UCT2xwca6wWHTygBPorpxujQ"
-target="_blank"
-rel="noopener">
+            <a
+                class="card"
+                href="https://music.youtube.com/channel/UCT2xwca6wWHTygBPorpxujQ"
+                target="_blank"
+                rel="noopener">
 
-<div class="icon">
+                <div class="icon">
 
-<svg viewBox="0 0 24 24">
+                    <svg viewBox="0 0 24 24">
 
-<circle
-cx="12"
-cy="12"
-r="10"
-fill="white"/>
+                        <circle
+                            cx="12"
+                            cy="12"
+                            r="10"
+                            fill="white"/>
 
-<path
-fill="#111"
-d="M10 8.2v7.6l6-3.8-6-3.8z"/>
+                        <path
+                            fill="#111"
+                            d="M10 8.2v7.6l6-3.8-6-3.8z"/>
 
-</svg>
+                    </svg>
 
-</div>
+                </div>
 
-<div class="name">YouTube Music</div>
-<div class="url-status">Listen</div>
+                <div class="name">YouTube Music</div>
+                <div class="url-status">Listen</div>
 
-</a>
+            </a>
 
 
-<!-- Boomplay -->
+            <!-- Boomplay -->
 
-<a
-class="card"
-href="https://www.boomplay.com/artists/EQJwvxPNWCltFmt3jnCtSGBI?from=search"
-target="_blank"
-rel="noopener">
+            <a
+                class="card"
+                href="https://www.boomplay.com/artists/EQJwvxPNWCltFmt3jnCtSGBI?from=search"
+                target="_blank"
+                rel="noopener">
 
-<div class="icon">
+                <div class="icon">
 
-<svg viewBox="0 0 24 24">
+                    <svg viewBox="0 0 24 24">
 
-<circle
-cx="12"
-cy="12"
-r="10"
-fill="white"/>
+                        <circle
+                            cx="12"
+                            cy="12"
+                            r="10"
+                            fill="white"/>
 
-<path
-fill="#111"
-d="M8 7h4.8c2.4 0 3.8 1.2 3.8 3 0 1.1-.6 2-1.6 2.5 1.3.4 2.1 1.4 2.1 2.8 0 2-1.5 3.7-4.2 3.7H8V7zm3 2.5v2.2h1.6c.7 0 1.1-.4 1.1-1.1 0-.7-.4-1.1-1.1-1.1H11zm0 4.7v2.3h2c.8 0 1.3-.4 1.3-1.2 0-.7-.5-1.1-1.3-1.1h-2z"/>
+                        <path
+                            fill="#111"
+                            d="M8 7h4.8c2.4 0 3.8 1.2 3.8 3 0 1.1-.6 2-1.6 2.5 1.3.4 2.1 1.4 2.1 2.8 0 2-1.5 3.7-4.2 3.7H8V7zm3 2.5v2.2h1.6c.7 0 1.1-.4 1.1-1.1 0-.7-.4-1.1-1.1-1.1H11zm0 4.7v2.3h2c.8 0 1.3-.4 1.3-1.2 0-.7-.5-1.1-1.3-1.1h-2z"/>
 
-</svg>
+                    </svg>
 
-</div>
+                </div>
 
-<div class="name">Boomplay</div>
-<div class="url-status">Explore</div>
+                <div class="name">Boomplay</div>
+                <div class="url-status">Explore</div>
 
-</a>
+            </a>
 
-</div>
+        </div>
 
-</section>
+    </section>
 
 
-<!-- =========================
-FOOTER
-========================= -->
+    <!-- =========================
+         FOOTER
+    ========================= -->
 
-<footer>
-© xlRVlx — OFFICIAL LINKS
-</footer>
+    <footer>
+        © xlRVlx — OFFICIAL LINKS
+    </footer>
 
 </div>
 
 
 <!-- ==========================================
-YOUTUBE IFRAME PLAYER API
+     YOUTUBE IFRAME PLAYER API
 ========================================== -->
 
 <script src="https://www.youtube.com/iframe_api"></script>
 
 
-<script src="https://www.youtube.com/iframe_api"></script>
-
 <script>
-/* ==========================================
-   xlRVlx YOUTUBE PLAYER + UPLOAD NAVIGATION
-   ========================================== */
 
-const CHANNEL_ID = "UCT2xwca6wWHTygBPorpxujQ";
-const FALLBACK_VIDEO_ID = "VJncR7t_OT4";
+    /* ==========================================
+       YOUTUBE LATEST UPLOAD SYSTEM
+    ========================================== */
 
-/*
-   These backup videos keep NEXT/PREVIOUS usable if the
-   external RSS service is temporarily unavailable.
-   New uploads are still loaded automatically when RSS works.
-*/
-const BACKUP_SONGS = [
-    {
-        id: "VJncR7t_OT4",
-        title: "Latest xlRVlx Upload",
-        link: "https://www.youtube.com/watch?v=VJncR7t_OT4"
-    },
-    {
-        id: "6t2hzisi-UI",
-        title: "Previous xlRVlx Upload",
-        link: "https://www.youtube.com/watch?v=6t2hzisi-UI"
-    }
-];
+    const CHANNEL_ID =
+        "UCT2xwca6wWHTygBPorpxujQ";
 
-const RSS_URL =
-    "https://www.youtube.com/feeds/videos.xml?channel_id=" + CHANNEL_ID;
+    const FALLBACK_VIDEO_ID =
+        "VJncR7t_OT4";
 
-const API_URL =
-    "https://api.rss2json.com/v1/api.json?rss_url=" +
-    encodeURIComponent(RSS_URL);
+    const RSS_URL =
+        "https://www.youtube.com/feeds/videos.xml?channel_id="
+        + CHANNEL_ID;
 
-let songs = [];
-let currentSongIndex = 0;
-let youtubePlayer = null;
-let youtubeAPIReady = false;
-let pendingVideoId = null;
+    const API_URL =
+        "https://api.rss2json.com/v1/api.json?rss_url="
+        + encodeURIComponent(RSS_URL);
 
-const songTitle = document.getElementById("songTitle");
-const songStatus = document.getElementById("songStatus");
-const youtubeButton = document.getElementById("youtubeButton");
-const previousButton = document.getElementById("previousButton");
-const nextButton = document.getElementById("nextButton");
 
-/* ==========================================
-   YOUTUBE API READY
-   ========================================== */
+    let songs = [];
 
-function onYouTubeIframeAPIReady() {
-    youtubeAPIReady = true;
+    let currentSongIndex = 0;
 
-    if (pendingVideoId) {
-        createYouTubePlayer(pendingVideoId, false);
-        pendingVideoId = null;
-    }
-}
+    let youtubePlayer = null;
 
-/* ==========================================
-   CREATE / CONTROL YOUTUBE PLAYER
-   ========================================== */
+    let youtubeAPIReady = false;
 
-function createYouTubePlayer(videoId, autoplay = false) {
-    if (!videoId) return;
+    let pendingVideoId = null;
 
-    if (!youtubeAPIReady) {
-        pendingVideoId = videoId;
-        return;
-    }
 
-    if (youtubePlayer) {
-        youtubePlayer.loadVideoById(videoId);
+    const songTitle =
+        document.getElementById("songTitle");
 
-        if (!autoplay) {
-            youtubePlayer.pauseVideo();
-        }
+    const songStatus =
+        document.getElementById("songStatus");
 
-        return;
-    }
+    const youtubeButton =
+        document.getElementById("youtubeButton");
 
-    youtubePlayer = new YT.Player("youtubePlayer", {
-        videoId: videoId,
-        playerVars: {
-            autoplay: autoplay ? 1 : 0,
-            rel: 0,
-            modestbranding: 1
-        },
-        events: {
-            onStateChange: onPlayerStateChange
-        }
-    });
-}
+    const previousButton =
+        document.getElementById("previousButton");
 
-function onPlayerStateChange(event) {
-    if (event.data === YT.PlayerState.ENDED) {
-        playNextAutomatically();
-    }
-}
+    const nextButton =
+        document.getElementById("nextButton");
 
-/* ==========================================
-   DISPLAY SONG
-   ========================================== */
 
-function displaySong(index, autoplay = false) {
-    if (!songs.length || !songs[index]) {
-        return;
-    }
+    /* ==========================================
+       YOUTUBE API READY
+    ========================================== */
 
-    const song = songs[index];
+    function onYouTubeIframeAPIReady() {
 
-    createYouTubePlayer(song.id, autoplay);
+        youtubeAPIReady = true;
 
-    songTitle.textContent = song.title;
-    youtubeButton.href = song.link;
+        if (pendingVideoId) {
 
-    if (index === 0) {
-        songStatus.textContent = "Latest from xlRVlx";
-    } else {
-        songStatus.textContent =
-            `Now playing "${song.title}" from xlRVlx`;
-    }
+            createYouTubePlayer(
+                pendingVideoId,
+                false
+            );
 
-    updateButtons();
-}
-
-/* ==========================================
-   BUTTON STATE
-   ========================================== */
-
-function updateButtons() {
-    previousButton.disabled = currentSongIndex <= 0;
-    nextButton.disabled = currentSongIndex >= songs.length - 1;
-}
-
-/* ==========================================
-   MANUAL NEXT
-   ========================================== */
-
-function showNextSong() {
-    if (currentSongIndex < songs.length - 1) {
-        currentSongIndex++;
-        displaySong(currentSongIndex, true);
-    }
-}
-
-/* ==========================================
-   AUTOMATIC NEXT WHEN VIDEO ENDS
-   ========================================== */
-
-function playNextAutomatically() {
-    if (currentSongIndex < songs.length - 1) {
-        currentSongIndex++;
-        displaySong(currentSongIndex, true);
-    } else {
-        songStatus.textContent = "End of xlRVlx uploads";
-        updateButtons();
-    }
-}
-
-/* ==========================================
-   MANUAL PREVIOUS
-   ========================================== */
-
-function showPreviousSong() {
-    if (currentSongIndex > 0) {
-        currentSongIndex--;
-        displaySong(currentSongIndex, true);
-    }
-}
-
-/* ==========================================
-   HELPERS
-   ========================================== */
-
-function extractVideoId(item) {
-    let videoId = "";
-
-    if (item.guid) {
-        const guidMatch = String(item.guid).match(
-            /video:([a-zA-Z0-9_-]+)/
-        );
-
-        if (guidMatch) {
-            videoId = guidMatch[1];
+            pendingVideoId = null;
         }
     }
 
-    if (!videoId && item.link) {
-        const linkMatch = String(item.link).match(
-            /[?&]v=([a-zA-Z0-9_-]+)/
-        );
 
-        if (linkMatch) {
-            videoId = linkMatch[1];
+    /* ==========================================
+       CREATE YOUTUBE PLAYER
+    ========================================== */
+
+    function createYouTubePlayer(videoId, autoplay = false) {
+
+        if (!youtubeAPIReady) {
+
+            pendingVideoId = videoId;
+
+            return;
         }
+
+
+        if (youtubePlayer) {
+
+            youtubePlayer.loadVideoById(videoId);
+
+            if (!autoplay) {
+
+                youtubePlayer.pauseVideo();
+            }
+
+            return;
+        }
+
+
+        youtubePlayer =
+            new YT.Player(
+                "youtubePlayer",
+                {
+
+                    videoId: videoId,
+
+                    playerVars: {
+
+                        autoplay:
+                            autoplay ? 1 : 0,
+
+                        rel: 0,
+
+                        modestbranding: 1
+
+                    },
+
+                    events: {
+
+                        onStateChange:
+                            onPlayerStateChange
+
+                    }
+
+                }
+            );
     }
 
-    return videoId;
-}
 
-function mergeBackupSongs(feedSongs) {
-    const result = [...feedSongs];
-    const existingIds = new Set(result.map(song => song.id));
+    /* ==========================================
+       VIDEO STATE CHANGE
+    ========================================== */
 
-    for (const backup of BACKUP_SONGS) {
-        if (!existingIds.has(backup.id)) {
-            result.push(backup);
-            existingIds.add(backup.id);
-        }
-    }
+    function onPlayerStateChange(event) {
 
-    return result;
-}
-
-/* ==========================================
-   LOAD LATEST YOUTUBE UPLOAD
-   ========================================== */
-
-async function loadLatestYouTubeUpload() {
-    try {
         /*
-           Cache-busting helps prevent an old RSS response from
-           being reused by a browser/proxy.
-        */
-        const requestUrl = API_URL + "&t=" + Date.now();
-
-        const response = await fetch(requestUrl, {
-            cache: "no-store"
-        });
-
-        if (!response.ok) {
-            throw new Error(`RSS request failed: ${response.status}`);
-        }
-
-        const data = await response.json();
+         * YT.PlayerState.ENDED = 0
+         *
+         * When the current song ends,
+         * automatically play the next older song.
+         */
 
         if (
-            data.status !== "ok" ||
-            !Array.isArray(data.items) ||
-            !data.items.length
+            event.data === YT.PlayerState.ENDED
         ) {
-            throw new Error("No YouTube uploads found.");
+
+            playNextAutomatically();
         }
-
-        const feedSongs = data.items
-            .map(item => {
-                const videoId = extractVideoId(item);
-
-                return {
-                    id: videoId,
-                    title: item.title || "xlRVlx Upload",
-                    link:
-                        item.link ||
-                        `https://www.youtube.com/watch?v=${videoId}`
-                };
-            })
-            .filter(song => song.id);
-
-        if (!feedSongs.length) {
-            throw new Error("Could not extract video IDs.");
-        }
-
-        /*
-           RSS is normally newest first.
-           Add known backup uploads only when they are not already
-           present, so a temporary RSS problem cannot reduce the
-           navigation list to one song.
-        */
-        songs = mergeBackupSongs(feedSongs);
-        currentSongIndex = 0;
-
-        displaySong(currentSongIndex, false);
-        songStatus.textContent = "Latest from xlRVlx";
-
-    } catch (error) {
-        console.error("YouTube RSS error:", error);
-
-        /*
-           RSS2JSON is an external service. If it is unavailable,
-           use the backup list instead of replacing songs with only
-           one video. This keeps NEXT/PREVIOUS functional.
-        */
-        songs = [...BACKUP_SONGS];
-        currentSongIndex = 0;
-
-        displaySong(currentSongIndex, false);
-        songStatus.textContent = "Latest upload unavailable — backup list loaded";
     }
-}
 
-/* ==========================================
-   START
-   ========================================== */
 
-loadLatestYouTubeUpload();
+    /* ==========================================
+       DISPLAY SONG
+    ========================================== */
+
+    function displaySong(
+        index,
+        autoplay = false
+    ) {
+
+        if (
+            !songs.length ||
+            !songs[index]
+        ) {
+
+            return;
+        }
+
+
+        const song =
+            songs[index];
+
+
+        createYouTubePlayer(
+            song.id,
+            autoplay
+        );
+
+
+        songTitle.textContent =
+            song.title;
+
+
+        youtubeButton.href =
+            song.link;
+
+
+        updateButtons();
+    }
+
+
+    /* ==========================================
+       UPDATE BUTTONS
+    ========================================== */
+
+    function updateButtons() {
+
+        previousButton.disabled =
+            currentSongIndex <= 0;
+
+        nextButton.disabled =
+            currentSongIndex >=
+            songs.length - 1;
+    }
+
+
+    /* ==========================================
+       MANUAL NEXT
+    ========================================== */
+
+    function showNextSong() {
+
+        if (
+            currentSongIndex <
+            songs.length - 1
+        ) {
+
+            currentSongIndex++;
+
+            displaySong(
+                currentSongIndex,
+                true
+            );
+        }
+    }
+
+
+    /* ==========================================
+       AUTOMATIC NEXT
+    ========================================== */
+
+    function playNextAutomatically() {
+
+        if (
+            currentSongIndex <
+            songs.length - 1
+        ) {
+
+            currentSongIndex++;
+
+            displaySong(
+                currentSongIndex,
+                true
+            );
+
+            songStatus.textContent =
+                "Now playing next from xlRVlx";
+
+        } else {
+
+            /*
+             * Last song reached.
+             * Stop here instead of looping.
+             */
+
+            songStatus.textContent =
+                "End of xlRVlx uploads";
+
+            updateButtons();
+        }
+    }
+
+
+    /* ==========================================
+       MANUAL PREVIOUS
+    ========================================== */
+
+    function showPreviousSong() {
+
+        if (
+            currentSongIndex > 0
+        ) {
+
+            currentSongIndex--;
+
+            displaySong(
+                currentSongIndex,
+                true
+            );
+        }
+    }
+
+
+    /* ==========================================
+       LOAD LATEST YOUTUBE UPLOAD
+    ========================================== */
+
+    async function loadLatestYouTubeUpload() {
+
+        try {
+
+            const response =
+                await fetch(API_URL);
+
+
+            const data =
+                await response.json();
+
+
+            if (
+                data.status !== "ok" ||
+                !data.items ||
+                !data.items.length
+            ) {
+
+                throw new Error(
+                    "No YouTube uploads found."
+                );
+            }
+
+
+            songs =
+                data.items
+                    .map(item => {
+
+                        let videoId = "";
+
+
+                        /* Try GUID */
+
+                        if (item.guid) {
+
+                            const guidMatch =
+                                item.guid.match(
+                                    /video:([a-zA-Z0-9_-]+)/
+                                );
+
+
+                            if (guidMatch) {
+
+                                videoId =
+                                    guidMatch[1];
+                            }
+                        }
+
+
+                        /* Try YouTube link */
+
+                        if (
+                            !videoId &&
+                            item.link
+                        ) {
+
+                            const linkMatch =
+                                item.link.match(
+                                    /[?&]v=([a-zA-Z0-9_-]+)/
+                                );
+
+
+                            if (linkMatch) {
+
+                                videoId =
+                                    linkMatch[1];
+                            }
+                        }
+
+
+                        return {
+
+                            id: videoId,
+
+                            title:
+                                item.title ||
+                                "xlRVlx Upload",
+
+                            link:
+                                item.link ||
+                                `https://www.youtube.com/watch?v=${videoId}`
+
+                        };
+
+                    })
+
+                    .filter(song =>
+                        song.id
+                    );
+
+
+            if (!songs.length) {
+
+                throw new Error(
+                    "Could not extract video IDs."
+                );
+            }
+
+
+            /*
+             * RSS returns newest first.
+             *
+             * index 0 = latest
+             * index 1 = older
+             * index 2 = even older
+             */
+
+            currentSongIndex = 0;
+
+
+            displaySong(
+                currentSongIndex,
+                false
+            );
+
+
+            songStatus.textContent =
+                "Latest from xlRVlx";
+
+
+        } catch (error) {
+
+            console.error(
+                "YouTube RSS error:",
+                error
+            );
+
+
+            /*
+             * Fallback
+             */
+
+            songs = [
+
+                {
+
+                    id:
+                        FALLBACK_VIDEO_ID,
+
+                    title:
+                        "xlRVlx",
+
+                    link:
+                        `https://www.youtube.com/watch?v=${FALLBACK_VIDEO_ID}`
+
+                }
+
+            ];
+
+
+            currentSongIndex = 0;
+
+
+            displaySong(
+                currentSongIndex,
+                false
+            );
+
+
+            songStatus.textContent =
+                "Featured song from xlRVlx";
+        }
+    }
+
+
+    /* ==========================================
+       START
+    ========================================== */
+
+    loadLatestYouTubeUpload();
+
 </script>
-
 
 </body>
 </html>
