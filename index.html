@@ -642,7 +642,7 @@ footer {
 <a
     id="youtubeButton"
     class="youtube-button"
-    href="https://www.youtube.com/watch?v=VJncR7t_OT4"
+    href="https://www.youtube.com/@xlRVlx.L731"
     target="_blank"
     rel="noopener">
 
@@ -835,7 +835,7 @@ rel="noopener">
 
 <path
 fill="white"
-d="M18.244 2.25h3.308l-7.227 8.26L22.83 21.75h-6.618l-5.19-6.793-5.935 6.793H1.777l7.73-8.835L1.17 2.25H7.956l4.69 6.204 5.598-6.204zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/>
+d="M18.244 2.25h3.308l-7.227 8.26L22.83 21.75h-6.618l-5.19-6.793-5.935 6.793H1.777l7.73-8.835L1.17 2.25H7.956l4.69 6.204 5.598-6.204z"/>
 
 </svg>
 
@@ -1046,13 +1046,9 @@ rel="noopener">
 <svg viewBox="0 0 24 24">
 
 <rect x="3" y="15" width="3" height="4" fill="white"/>
-
 <rect x="7" y="13" width="3" height="6" fill="white"/>
-
 <rect x="11" y="11" width="3" height="8" fill="white"/>
-
 <rect x="15" y="9" width="3" height="10" fill="white"/>
-
 <rect x="19" y="7" width="2" height="12" fill="white"/>
 
 </svg>
@@ -1123,7 +1119,7 @@ d="M12 2a10 10 0 0 0-3.6 19.3c-.1-1.6 0-3.5.4-5.1l1.2-5.1s-.3-.7-.3-1.7c0-1.6.9-
 
 <a
 class="card"
-href="https://music.youtube.com/channel/UCT2xwca6wWHTygBPorpxujQ"
+href="https://music.youtube.com/channel/UCOuQ_m5lZJfHD3rO6cuhHVw"
 target="_blank"
 rel="noopener">
 
@@ -1220,9 +1216,17 @@ d="M8 7h4.8c2.4 0 3.8 1.2 3.8 3 0 1.1-.6 2-1.6 2.5 1.3.4 2.1 1.4 2.1 2.8 0 2-1.5
    YOUTUBE SETTINGS
 ========================================== */
 
+/*
+   NEW xlRVlx YOUTUBE CHANNEL
+*/
 const CHANNEL_ID =
-    "UCT2xwca6wWHTygBPorpxujQ";
+    "UCOuQ_m5lZJfHD3rO6cuhHVw";
 
+/*
+   FALLBACK VIDEO
+   Replace this with a video ID from your
+   NEW channel if you want a new fallback.
+*/
 const FALLBACK_VIDEO_ID =
     "VJncR7t_OT4";
 
@@ -1371,7 +1375,6 @@ function onPlayerStateChange(event) {
 
 /* ==========================================
    DISPLAY SONG
-   THIS CONTROLS THE NOW PLAYING TEXT
 ========================================== */
 
 function displaySong(
@@ -1398,23 +1401,13 @@ function displaySong(
     );
 
 
-    /* Show the actual YouTube upload title */
-
     songTitle.textContent =
         song.title;
 
 
-    /* Update the YouTube link */
-
     youtubeButton.href =
         song.link;
 
-
-    /*
-       IMPORTANT:
-       The status now ALWAYS matches
-       the actual selected song title.
-    */
 
     if (index === 0) {
 
@@ -1480,11 +1473,6 @@ function playNextAutomatically() {
     ) {
 
         currentSongIndex++;
-
-        /*
-           displaySong() now handles
-           the exact title automatically.
-        */
 
         displaySong(
             currentSongIndex,
@@ -1669,7 +1657,7 @@ async function loadLatestYouTubeUpload() {
 
         /*
            Fallback keeps the site working
-           if RSS2JSON is temporarily unavailable.
+           if RSS2JSON is unavailable.
         */
 
         songs = [
